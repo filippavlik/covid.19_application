@@ -4,25 +4,20 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.QuadCurve;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    @FXML
-    private Text min4chars;
     @FXML
     private TextField textfield_pass;
     @FXML
@@ -68,10 +63,6 @@ public class Controller implements Initializable {
     @FXML
     private RadioButton female_radio;
     @FXML
-    private Text contains_numbers;
-    @FXML
-    private Text emaiisbad;
-    @FXML
     private TextField visregister;
     @FXML
     private TextField textfield_email;
@@ -83,7 +74,7 @@ public class Controller implements Initializable {
     private DialogPane dialoga;
     public static Alert dg = new Alert(Alert.AlertType.ERROR, "Do you really want to exit without saving?", ButtonType.YES, ButtonType.CANCEL);
     boolean obsemail_bool;public static String emailpremenna;private static String passwordpremenna;
-    boolean sediasponheslo;public static String emailregister;private final DateTimeFormatter fastFormatter = DateTimeFormatter.ofPattern("ddMMuuuu");
+    boolean sediasponheslo;public static String emailregister;
     static boolean jespravne_nick;static boolean jespravne_date;static boolean jespravne_pohlavie;static boolean jespravne_email;
     static boolean jespravne_password;static LocalDate localDate;
     static String nick_register;static String date;static String gender;static String email;static String password;
@@ -129,7 +120,7 @@ public class Controller implements Initializable {
                 emailpremenna = textfield_email.getText();
                 sediasponheslo=Jdriver.obsahuje_email();
                 if (sediasponheslo){textfield_email.setStyle("-fx-text-inner-color: green;");password_incorrect.setVisible(true);   }
-                else if (!sediasponheslo && !obsemail_bool){email_correct.setVisible(true);}}}
+                else if (!obsemail_bool){email_correct.setVisible(true);}}}
 
         }
 
@@ -165,7 +156,7 @@ public class Controller implements Initializable {
                 emailpremenna = textfield_email.getText();
                 sediasponheslo=Jdriver.obsahuje_email();
              if (sediasponheslo){textfield_email.setStyle("-fx-text-inner-color: green;");password_incorrect.setVisible(true);   }
-            else if (!sediasponheslo && !obsemail_bool){email_correct.setVisible(true);}}}}
+            else if (!obsemail_bool){email_correct.setVisible(true);}}}}
     public void visibclick(MouseEvent mouseEvent){
         if (passwordfield_password.isVisible()) {
             passwordfield_password.setVisible(false);
@@ -242,8 +233,7 @@ public class Controller implements Initializable {
     }
     public void registration(MouseEvent mouseEvent) throws Exception {
         {password_nick.setStyle("-fx-text-inner-color: green;");}
-        if (password_nick.getText().matches(".*\\d.*")){ password_nick.setStyle("-fx-text-inner-color: red;");
-        contains_numbers.setVisible(true);}
+        if (password_nick.getText().matches(".*\\d.*")){ password_nick.setStyle("-fx-text-inner-color: red;"); }
         if (male_radio.isSelected() || female_radio.isSelected())
         {if (male_radio.isSelected() && female_radio.isSelected()){
             male_radio.setStyle("-fx-text-fill: red;"); female_radio.setStyle("-fx-text-fill: red;");
@@ -254,20 +244,16 @@ public class Controller implements Initializable {
         emailregister=email_register.getText();
         emailregister=emailregister.replace(" ","");
         if (!emailregister.contains("@") || !emailregister.contains(".")) {
-            emaiisbad.setText("E-mail in wrong format");
-                emaiisbad.setVisible(true);email_register.setStyle("-fx-text-fill:red");
+           email_register.setStyle("-fx-text-fill:red");
         }else if (Jdriver.obsahuje_email()){
-            email_register.setStyle("-fx-text-fill:red");
-            emaiisbad.setText("E-mail already used");
-            emaiisbad.setVisible(true);}
+            email_register.setStyle("-fx-text-fill:red"); }
         else email_register.setStyle("-fx-text-fill:green");
         if (visregister.isVisible() ){
         if (visregister.getLength()>=4){visregister.setStyle("-fx-text-fill:green");jespravne_password=true;
-        password=visregister.getText();}else {visregister.setStyle("-fx-text-fill:red");
-        min4chars.setVisible(true);}}
+        password=visregister.getText();}else {visregister.setStyle("-fx-text-fill:red"); }}
         if (password_register.isVisible()){if (password_register.getLength()>=4){
             password_register.setStyle("-fx-text-fill:green");jespravne_password=true;password=password_register.getText();}
-        else {password_register.setStyle("-fx-text-fill:red");min4chars.setVisible(true);}
+        else {password_register.setStyle("-fx-text-fill:red");}
             localDate=date_of_birth.getValue();
         if (!password_nick.getText().matches(".*\\d.*")){jespravne_nick=true;nick_register=password_nick.getText();}
         if (localDate.getYear()<=2020 && localDate.getYear()>=1950){jespravne_date=true;date=localDate.toString();date_of_birth.getStylesheets()
@@ -291,17 +277,15 @@ public class Controller implements Initializable {
     }}
     public void _backtoblack(MouseEvent mouseDragEvent) {
         if (MouseEvent.MOUSE_ENTERED==mouseDragEvent.getEventType()){
-            contains_numbers.setVisible(false);
         password_nick.setStyle("-fx-text-inner-color: black;");}
     }
     public void nas5_email(MouseEvent mouseEvent) {
         if (MouseEvent.MOUSE_ENTERED.equals(mouseEvent.getEventType()))
-        {email_register.setStyle("-fx-text-fill:black");emaiisbad.setVisible(false);}
+        {email_register.setStyle("-fx-text-fill:black");}
     }
     public void nas5_helso(MouseEvent mouseEvent) {
         visregister.setStyle("-fx-text-fill:black");
         password_register.setStyle("-fx-text-fill:black");
-        min4chars.setVisible(false);
     }
     public void backtoblack(MouseEvent mouseEvent) {
         date_of_birth.getStylesheets()

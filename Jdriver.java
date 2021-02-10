@@ -32,6 +32,7 @@ public class Jdriver {
         try{
         stm=myconn.createStatement();
         rst=stm.executeQuery("select * from new_table");
+
         while (rst.next()) {
             emailsedi=rst.getString("email");
             if (emailsedi.equals(Controller.emailpremenna)||emailsedi.equals(Controller.emailregister))
@@ -48,6 +49,7 @@ public class Jdriver {
             stm_for_pass=myconn_for_pass.createStatement();
             rst_for_pass=stm_for_pass.executeQuery("select * from new_table");
             obsahuje_email();
+
             while (rst_for_pass.next()){
                 if (rst_for_pass.getString("email").equals(Controller.emailpremenna)&&rst_for_pass.getString("password").equals(Controller.getPasswordpremenna()))
                     return true;

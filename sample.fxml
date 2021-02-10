@@ -204,16 +204,6 @@
             <Font name="Segoe UI Black Italic" size="10.0" />
          </font>
       </RadioButton>
-      <Text fx:id="contains_numbers" fill="RED" layoutX="444.0" layoutY="96.0" opacity="0.76" strokeType="OUTSIDE" strokeWidth="0.0" text="Numbers in name" visible="false" wrappingWidth="56.0">
-         <font>
-            <Font name="Segoe UI Black" size="12.0" />
-         </font>
-      </Text>
-      <Text fx:id="emaiisbad" fill="RED" layoutX="537.0" layoutY="255.0" opacity="0.76" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail in wrong format" visible="false" wrappingWidth="150.0">
-         <font>
-            <Font name="Segoe UI Black Italic" size="12.0" />
-         </font>
-      </Text>
       <TextField fx:id="visregister" alignment="CENTER" layoutX="509.0" layoutY="262.0" onMouseEntered="#nas5_helso" opacity="0.75" prefHeight="26.0" prefWidth="162.0" visible="false">
          <cursor>
             <Cursor fx:constant="TEXT" />
@@ -222,10 +212,5 @@
             <Font name="Segoe UI Black Italic" size="12.0" />
          </font>
       </TextField>
-      <Text fx:id="min4chars" fill="RED" layoutX="577.0" layoutY="303.0" opacity="0.75" strokeType="OUTSIDE" strokeWidth="0.0" text="Password must have 4 characters" visible="false" wrappingWidth="111.13671875">
-         <font>
-            <Font name="Segoe UI Black Italic" size="12.0" />
-         </font>
-      </Text>
    </Pane>
 </AnchorPane>
