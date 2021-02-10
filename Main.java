@@ -27,6 +27,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Covid-19 Spread Simulator");
         primaryStage.setResizable(false);
+
         Image icona=new Image("resources/chat.png");
         primaryStage.getIcons().add(icona);
         primaryStage.initStyle(StageStyle.UNDECORATED);

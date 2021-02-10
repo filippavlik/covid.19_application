@@ -72,12 +72,20 @@ public class Controller implements Initializable {
     private CheckBox visible_check;
     @FXML
     private DialogPane dialoga;
+
+    //Alert pri Exite
+
     public static Alert dg = new Alert(Alert.AlertType.ERROR, "Do you really want to exit without saving?", ButtonType.YES, ButtonType.CANCEL);
+
+    //premenne použité pri JDriveri..overovanie dát
+
     boolean obsemail_bool;public static String emailpremenna;private static String passwordpremenna;
     boolean sediasponheslo;public static String emailregister;
     static boolean jespravne_nick;static boolean jespravne_date;static boolean jespravne_pohlavie;static boolean jespravne_email;
     static boolean jespravne_password;static LocalDate localDate;
     static String nick_register;static String date;static String gender;static String email;static String password;
+
+
     public Controller() {
     }
 
@@ -86,10 +94,14 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
+    //fn minimalise the main window
     public void minimales(MouseEvent mouseEvent) {
         Stage stage1 = (Stage) ((Button) mouseEvent.getSource()).getScene().getWindow();
         stage1.setIconified(true);
     }
+
+    //open dialog window for exit
     public void escclicked(KeyEvent keyEvent) {
         if (keyEvent.getCode().getCode() == KeyCode.ESCAPE.getCode()) {
             dialoga.setVisible(true);
@@ -126,6 +138,8 @@ public class Controller implements Initializable {
 
 
     }
+
+    //fn checks email and pass in login, if it is true,it opens next window
     public void loginclicked(MouseEvent mouseEvent) throws Exception {
         if (mouseEvent.getEventType() == MouseEvent.MOUSE_CLICKED) {
             if (passwordfield_password.isVisible()){
@@ -149,14 +163,18 @@ public class Controller implements Initializable {
                 Stage zavri= (Stage) passwordfield_password.getScene().getWindow();
                 zavri.close();
                 Main.setNew_stage(Main.new_stage);
-
-
-
             }else {
                 emailpremenna = textfield_email.getText();
                 sediasponheslo=Jdriver.obsahuje_email();
-             if (sediasponheslo){textfield_email.setStyle("-fx-text-inner-color: green;");password_incorrect.setVisible(true);   }
-            else if (!obsemail_bool){email_correct.setVisible(true);}}}}
+             if (sediasponheslo){textfield_email.setStyle("-fx-text-inner-color: green;");password_incorrect.setVisible(true);
+                 passwordfield_password.setStyle("-fx-text-inner-color: red;");
+             textfield_pass.setStyle("-fx-text-inner-color: red;");}
+            else if (!obsemail_bool){email_correct.setVisible(true);
+                 passwordfield_password.setStyle("-fx-text-inner-color: red;");
+                 textfield_email.setStyle("-fx-text-inner-color: red;");
+            }}}}
+
+    //fn makes visible and hide password in login and registration
     public void visibclick(MouseEvent mouseEvent){
         if (passwordfield_password.isVisible()) {
             passwordfield_password.setVisible(false);
@@ -175,6 +193,8 @@ public class Controller implements Initializable {
             passwordfield_password.setText(textfield_pass.getText());
             passwordfield_password.setVisible(true);}
         }
+
+    //fn exits app,setting dialog window
     public void eit1(MouseEvent mouseEvent) {
         dg.setHeaderText("Exit without saving?");
         dg.setTitle("Exit");
@@ -194,7 +214,9 @@ public class Controller implements Initializable {
         }
 
     }
-    public void nas5_naciernu(MouseEvent mouseEvent) {
+
+    //change colour to black in email and password log
+    public void _backtoblack_loginemail(MouseEvent mouseEvent) {
         if (mouseEvent.getEventType()==MouseEvent.MOUSE_ENTERED)
             textfield_email.setStyle("-fx-text-inner-color: black;");
         passwordfield_password.setStyle("-fx-text-inner-color: black;");
@@ -206,21 +228,75 @@ public class Controller implements Initializable {
 
 
     }
+
+
+    //change colour to black in registration
+    public void _backtoblack_name(MouseEvent mouseDragEvent) {
+        if (MouseEvent.MOUSE_ENTERED==mouseDragEvent.getEventType()){
+            password_nick.setStyle("-fx-text-inner-color: black;");}
+    }
     public static String getPasswordpremenna() {
         return passwordpremenna;
     }
+
+    //change colour to black in registration
+    public void _backtoblack_email(MouseEvent mouseEvent) {
+        if (MouseEvent.MOUSE_ENTERED.equals(mouseEvent.getEventType()))
+        {email_register.setStyle("-fx-text-fill:black");}
+    }
+
+    //change colour to black in password registration
+    public void _backtoblack_password(MouseEvent mouseEvent) {
+        visregister.setStyle("-fx-text-fill:black");
+        password_register.setStyle("-fx-text-fill:black");
+    }
+
+    //change colour to black in calendar
+    public void backtoblack(MouseEvent mouseEvent) {
+        date_of_birth.getStylesheets()
+                .add(getClass()
+                        .getResource("datapicker.css")
+                        .toExternalForm());
+
+    }
+
+
+    //change colour to black in.visibility componentov
     public void register_clicked(MouseEvent mouseEvent) {
-        password_nick.setVisible(true);password_register.setVisible(true);date_of_birth.setVisible(true);
-        line1.setVisible(true);line2.setVisible(true);line3.setVisible(true);line4.setVisible(true);
-        passwordfield_password.setVisible(false);textfield_email.setVisible(false);textfield_pass.setVisible(false);
-        login_clicked.setDisable(true);login_clicked.setVisible(false);register_button.setDisable(true);
-        register_button.setVisible(false);register_carka.setVisible(false);login_carka.setVisible(false);
-        spatbutton.setDisable(false);register_button_down.setVisible(true);login_clicked.setDisable(false);email_correct.setVisible(false);
-       email_correct.setVisible(false);password_incorrect.setVisible(false);textfield_pass.setVisible(false);email_register.setVisible(true);
-       male_radio.setVisible(true);female_radio.setVisible(true);passwordfield_password.setVisible(false);textfield_pass.setVisible(false);
+        password_nick.setVisible(true);
+        password_register.setVisible(true);
+        date_of_birth.setVisible(true);
+        line1.setVisible(true);
+        line2.setVisible(true);
+        line3.setVisible(true);
+        line4.setVisible(true);
+        male_radio.setVisible(true);
+        female_radio.setVisible(true);
+        email_register.setVisible(true);
+        register_button_down.setVisible(true);
+        register_button.setDisable(true);
+        login_clicked.setDisable(true);
+
+        passwordfield_password.setVisible(false);
+        textfield_email.setVisible(false);
+        textfield_pass.setVisible(false);
+       login_clicked.setVisible(false);
+        register_button.setVisible(false);
+        register_carka.setVisible(false);
+        login_carka.setVisible(false);
+        spatbutton.setDisable(false);
+        login_clicked.setDisable(false);
+        email_correct.setVisible(false);
+       email_correct.setVisible(false);
+       password_incorrect.setVisible(false);
+       textfield_pass.setVisible(false);
+       passwordfield_password.setVisible(false);
+       textfield_pass.setVisible(false);
 
 
     }
+
+    //from registration formulat back to login
     public void spatclikced(MouseEvent mouseEvent) {
         password_nick.setVisible(false);password_register.setVisible(false);date_of_birth.setVisible(false);
         line1.setVisible(false);line2.setVisible(false);line3.setVisible(false);line4.setVisible(false);
@@ -231,6 +307,8 @@ public class Controller implements Initializable {
         male_radio.setVisible(false);female_radio.setVisible(false);visregister.setVisible(false);password_register.setVisible(false);
 
     }
+
+    //the process of registration
     public void registration(MouseEvent mouseEvent) throws Exception {
         {password_nick.setStyle("-fx-text-inner-color: green;");}
         if (password_nick.getText().matches(".*\\d.*")){ password_nick.setStyle("-fx-text-inner-color: red;"); }
@@ -275,25 +353,10 @@ public class Controller implements Initializable {
             Main.setNew_stage(Main.new_stage);}
 
     }}
-    public void _backtoblack(MouseEvent mouseDragEvent) {
-        if (MouseEvent.MOUSE_ENTERED==mouseDragEvent.getEventType()){
-        password_nick.setStyle("-fx-text-inner-color: black;");}
-    }
-    public void nas5_email(MouseEvent mouseEvent) {
-        if (MouseEvent.MOUSE_ENTERED.equals(mouseEvent.getEventType()))
-        {email_register.setStyle("-fx-text-fill:black");}
-    }
-    public void nas5_helso(MouseEvent mouseEvent) {
-        visregister.setStyle("-fx-text-fill:black");
-        password_register.setStyle("-fx-text-fill:black");
-    }
-    public void backtoblack(MouseEvent mouseEvent) {
-        date_of_birth.getStylesheets()
-                .add(getClass()
-                        .getResource("datapicker.css")
-                        .toExternalForm());
 
-    }
+
 }
+
+
 
 

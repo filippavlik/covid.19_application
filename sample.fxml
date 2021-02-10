@@ -88,7 +88,7 @@
             <ButtonType fx:constant="YES" />
          </DialogPane>
       </HBox>
-      <PasswordField fx:id="passwordfield_password" accessibleText="&quot;write your e-mail&quot;" alignment="CENTER" layoutX="510.0" layoutY="263.0" onKeyTyped="#escclicked" onMouseEntered="#nas5_naciernu" opacity="0.75" prefHeight="26.4" prefWidth="162.4" promptText="password">
+      <PasswordField fx:id="passwordfield_password" accessibleText="&quot;write your e-mail&quot;" alignment="CENTER" layoutX="510.0" layoutY="263.0" onKeyTyped="#escclicked" onMouseEntered="#_backtoblack_loginemail" opacity="0.75" prefHeight="26.4" prefWidth="162.4" promptText="password">
          <font>
             <Font name="Segoe UI Black Italic" size="12.0" />
          </font>
@@ -96,7 +96,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </PasswordField>
-      <TextField fx:id="textfield_pass" alignment="CENTER" layoutX="510.0" layoutY="263.0" onMouseEntered="#nas5_naciernu" opacity="0.75" prefHeight="26.4" prefWidth="162.0" visible="false">
+      <TextField fx:id="textfield_pass" alignment="CENTER" layoutX="510.0" layoutY="263.0" onMouseEntered="#_backtoblack_loginemail" opacity="0.75" prefHeight="26.4" prefWidth="162.0" visible="false">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -129,27 +129,12 @@
             <Font name="Segoe UI Black Italic" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="password_correct1" fill="#137929" layoutX="500.0" layoutY="375.0" opacity="0.39" strokeType="OUTSIDE" strokeWidth="0.0" text="Password Correct" visible="false" wrappingWidth="202.40003051757822">
-         <font>
-            <Font name="Segoe UI Black Italic" size="18.0" />
-         </font>
-      </Text>
-      <Text fx:id="email_correct1" fill="RED" layoutX="500.0" layoutY="377.0" opacity="0.39" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Not Found" visible="false" wrappingWidth="202.40003051757822">
-         <font>
-            <Font name="Segoe UI Black Italic" size="18.0" />
-         </font>
-      </Text>
-      <Text fx:id="password_incorrect1" fill="RED" layoutX="500.0" layoutY="376.0" opacity="0.4" strokeType="OUTSIDE" strokeWidth="0.0" text="Password Incorrect" visible="false" wrappingWidth="202.40003051757822">
-         <font>
-            <Font name="Segoe UI Black Italic" size="18.0" />
-         </font>
-      </Text>
       <Button fx:id="register_button_down" layoutX="570.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#registration" prefHeight="32.0" prefWidth="99.0" text="Register" textAlignment="CENTER" visible="false">
          <font>
             <Font name="Segoe UI Black Italic" size="12.0" />
          </font>
       </Button>
-      <PasswordField fx:id="password_register" alignment="CENTER" layoutX="509.0" layoutY="262.0" onMouseEntered="#nas5_helso" opacity="0.75" prefHeight="26.0" prefWidth="162.0" promptText="set password" visible="false">
+      <PasswordField fx:id="password_register" alignment="CENTER" layoutX="509.0" layoutY="262.0" onMouseEntered="#_backtoblack_password" opacity="0.75" prefHeight="26.0" prefWidth="162.0" promptText="set password" visible="false">
          <font>
             <Font name="Segoe UI Black" size="12.0" />
          </font>
@@ -157,7 +142,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </PasswordField>
-      <TextField fx:id="password_nick" alignment="CENTER" layoutX="510.0" layoutY="85.0" onMouseEntered="#_backtoblack" opacity="0.75" prefHeight="30.0" prefWidth="162.0" promptText="Enter your name" visible="false">
+      <TextField fx:id="password_nick" alignment="CENTER" layoutX="510.0" layoutY="85.0" onMouseEntered="#_backtoblack_name" opacity="0.75" prefHeight="30.0" prefWidth="162.0" promptText="Enter your name" visible="false">
          <font>
             <Font name="Segoe UI Black Italic" size="12.0" />
          </font>
@@ -178,7 +163,7 @@
       <Line fx:id="line3" endX="-88.0" endY="-12.0" layoutX="762.0" layoutY="58.0" startX="-97.107177734375" startY="-5.535552978515625" stroke="WHITE" strokeWidth="3.0" visible="false" />
       <Line fx:id="line4" endX="155.0" endY="-124.0" layoutX="520.0" layoutY="188.0" startX="144.892822265625" startY="-133.20712280273438" stroke="WHITE" strokeWidth="3.0" visible="false" />
       <Button fx:id="spatbutton" disable="true" layoutX="662.0" layoutY="37.0" minWidth="30.0" mnemonicParsing="false" onMouseClicked="#spatclikced" prefHeight="42.0" prefWidth="30.0" style="-fx-background-color: transparent;" text="Button" />
-      <TextField fx:id="email_register" alignment="CENTER" layoutX="509.0" layoutY="212.0" onMouseEntered="#nas5_email" opacity="0.75" prefHeight="30.0" prefWidth="162.0" promptText="Enter your email" visible="false">
+      <TextField fx:id="email_register" alignment="CENTER" layoutX="509.0" layoutY="212.0" onMouseEntered="#_backtoblack_email" opacity="0.75" prefHeight="30.0" prefWidth="162.0" promptText="Enter your email" visible="false">
          <font>
             <Font name="Segoe UI Black Italic" size="12.0" />
          </font>
@@ -186,7 +171,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <TextField fx:id="textfield_email" alignment="CENTER" layoutX="509.0" layoutY="211.0" onKeyTyped="#escclicked" onMouseEntered="#nas5_naciernu" opacity="0.75" prefHeight="32.0" prefWidth="162.0" promptText="name@email.com">
+      <TextField fx:id="textfield_email" alignment="CENTER" layoutX="509.0" layoutY="211.0" onKeyTyped="#escclicked" onMouseEntered="#_backtoblack_loginemail" opacity="0.75" prefHeight="32.0" prefWidth="162.0" promptText="name@email.com">
          <font>
             <Font name="Segoe UI Black Italic" size="12.0" />
          </font>
@@ -204,7 +189,7 @@
             <Font name="Segoe UI Black Italic" size="10.0" />
          </font>
       </RadioButton>
-      <TextField fx:id="visregister" alignment="CENTER" layoutX="509.0" layoutY="262.0" onMouseEntered="#nas5_helso" opacity="0.75" prefHeight="26.0" prefWidth="162.0" visible="false">
+      <TextField fx:id="visregister" alignment="CENTER" layoutX="509.0" layoutY="262.0" onMouseEntered="#_backtoblack_loginemail" opacity="0.75" prefHeight="26.0" prefWidth="162.0" visible="false">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
