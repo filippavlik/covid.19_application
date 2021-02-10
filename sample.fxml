@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="anchor" onKeyTyped="#escclicked" prefHeight="389.0" prefWidth="692.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <effect>
+      <Glow level="0.0" />
+   </effect>
+   <Pane fx:id="paneko" layoutY="1.0" onKeyPressed="#escclicked" onKeyTyped="#escclicked" prefHeight="388.0" prefWidth="695.0">
+      <cursor>
+         <Cursor fx:constant="DEFAULT" />
+      </cursor>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="15.0" layoutX="474.0" layoutY="267.0" stroke="WHITE" strokeDashOffset="50.0" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="50.0" strokeType="INSIDE" width="23.0" />
+      <QuadCurve fx:id="brucho" controlX="-7.5" controlY="-15.500015258789062" endX="-2.0" endY="-1.52587890625E-5" fill="WHITE" layoutX="492.0" layoutY="231.0" startX="-14.20001220703125" startY="-1.52587890625E-5" stroke="WHITE" />
+      <Circle fx:id="hlava" fill="WHITE" layoutX="484.0" layoutY="219.0" radius="2.0" stroke="WHITE" />
+      <Button fx:id="minimalise1" layoutX="37.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#minimales" opacity="0.0" prefHeight="24.0" prefWidth="37.0" text="Button">
+         <font>
+            <Font size="11.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Line endX="100.0" layoutX="-34.0" layoutY="37.0" startX="81.4000015258789" stroke="#fffdfd" strokeWidth="3.0" />
+      <Line endX="106.27874755859375" endY="13.121320724487305" fill="WHITE" layoutY="30.0" startX="95.4000244140625" startY="-1.6000003814697266" stroke="WHITE" strokeWidth="3.0" />
+      <Line endX="97.656982421875" endY="-4.0" fill="#fdfbfb" layoutX="-2.0" layoutY="46.0" startX="107.4000244140625" startY="-17.599998474121094" stroke="WHITE" strokeWidth="3.0" />
+      <Text fill="WHITE" layoutX="14.0" layoutY="369.0" opacity="0.72" strokeType="OUTSIDE" strokeWidth="0.0" text="©  Filip Pavlík __eufordigital.eu" wrappingWidth="202.40003051757822">
+         <font>
+            <Font name="Segoe UI Black Italic" size="13.0" />
+         </font>
+      </Text>
+      <CheckBox fx:id="visible_check" layoutX="510.0" layoutY="297.0" mnemonicParsing="false" onMouseClicked="#visibclick" opacity="0.82" prefHeight="18.0" prefWidth="56.0" style="-fx-border-width: 2;" text="visible" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Black Italic" size="8.0" />
+         </font>
+         <effect>
+            <Reflection bottomOpacity="0.11" fraction="0.66" topOpacity="0.68" />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </CheckBox>
+      <QuadCurve controlX="-2.79998779296875" controlY="-19.0" endX="11.0" endY="-2.0" fill="#2d2f74" layoutX="486.0" layoutY="269.0" startX="-12.0" startY="-2.0" stroke="WHITE" strokeWidth="2.0" />
+      <Circle layoutX="480.0" layoutY="275.0" radius="1.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="485.0" layoutY="275.0" radius="1.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="491.0" layoutY="275.0" radius="1.0" stroke="BLACK" strokeType="INSIDE" />
+      <HBox alignment="TOP_RIGHT" layoutX="290.0" layoutY="14.0" prefHeight="27.0" prefWidth="394.0" spacing="15.0">
+         <padding>
+            <Insets left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <Button fx:id="register_button" mnemonicParsing="false" onMouseClicked="#register_clicked" prefHeight="31.0" prefWidth="81.0" style="-fx-background-color: transparent;" text="Register" textFill="WHITE">
+            <HBox.margin>
+               <Insets />
+            </HBox.margin>
+            <font>
+               <Font name="Segoe UI Black Italic" size="15.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button fx:id="login_clicked" mnemonicParsing="false" onKeyTyped="#escclicked" onMouseClicked="#loginclicked" style="-fx-background-color: transparent;" text="Login" textFill="WHITE">
+            <HBox.margin>
+               <Insets />
+            </HBox.margin>
+            <font>
+               <Font name="Segoe UI Black Italic" size="15.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+      </HBox>
+      <Line fx:id="register_carka" endX="9.5999755859375" fill="#fffcfc" layoutX="581.0" layoutY="55.0" startX="-50.4000244140625" stroke="WHITE" strokeWidth="2.0" />
+      <Line fx:id="login_carka" endX="-4.4000244140625" endY="3.814697265625E-6" layoutX="670.0" layoutY="56.0" startX="-50.4000244140625" stroke="WHITE" strokeWidth="2.0" />
+      <HBox layoutX="175.0" layoutY="73.0" prefHeight="90.0" prefWidth="99.0">
+         <DialogPane fx:id="dialoga" contentText="Do you really want to exit app without save?" expanded="true" headerText="EXIT?" opacity="0.74" prefHeight="107.0" prefWidth="315.0" style="-fx-border-color: #4287f5; -fx-border-insets: 4; -fx-border-style: solid solid hidden solid;" visible="false">
+            <opaqueInsets>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </opaqueInsets>
+            <ButtonType fx:constant="CLOSE" />
+            <ButtonType fx:constant="YES" />
+         </DialogPane>
+      </HBox>
+      <PasswordField fx:id="passwordfield_password" accessibleText="&quot;write your e-mail&quot;" alignment="CENTER" layoutX="510.0" layoutY="263.0" onKeyTyped="#escclicked" onMouseEntered="#nas5_naciernu" opacity="0.75" prefHeight="26.4" prefWidth="162.4" promptText="password">
+         <font>
+            <Font name="Segoe UI Black Italic" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </PasswordField>
+      <TextField fx:id="textfield_pass" alignment="CENTER" layoutX="510.0" layoutY="263.0" onMouseEntered="#nas5_naciernu" opacity="0.75" prefHeight="26.4" prefWidth="162.0" visible="false">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font name="Segoe UI Black Italic" size="12.0" />
+         </font>
+      </TextField>
+      <VBox fx:id="vboxexit" layoutX="85.0" layoutY="14.0" onMouseClicked="#eit1" prefHeight="42.0" prefWidth="30.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <Button fx:id="eit1" mnemonicParsing="false" onMouseClicked="#eit1" opacity="0.0" prefHeight="42.0" prefWidth="30.0" textFill="#ebea38" visible="false">
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+      </VBox>
+      <Text fx:id="password_correct" fill="#137929" layoutX="490.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password Correct" visible="false" wrappingWidth="202.40003051757822">
+         <font>
+            <Font name="Segoe UI Black Italic" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="email_correct" fill="RED" layoutX="490.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Not Found" visible="false" wrappingWidth="202.40003051757822">
+         <font>
+            <Font name="Segoe UI Black Italic" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="password_incorrect" fill="RED" layoutX="490.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password Incorrect" visible="false" wrappingWidth="202.40003051757822">
+         <font>
+            <Font name="Segoe UI Black Italic" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="password_correct1" fill="#137929" layoutX="500.0" layoutY="375.0" opacity="0.39" strokeType="OUTSIDE" strokeWidth="0.0" text="Password Correct" visible="false" wrappingWidth="202.40003051757822">
+         <font>
+            <Font name="Segoe UI Black Italic" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="email_correct1" fill="RED" layoutX="500.0" layoutY="377.0" opacity="0.39" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Not Found" visible="false" wrappingWidth="202.40003051757822">
+         <font>
+            <Font name="Segoe UI Black Italic" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="password_incorrect1" fill="RED" layoutX="500.0" layoutY="376.0" opacity="0.4" strokeType="OUTSIDE" strokeWidth="0.0" text="Password Incorrect" visible="false" wrappingWidth="202.40003051757822">
+         <font>
+            <Font name="Segoe UI Black Italic" size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="register_button_down" layoutX="570.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#registration" prefHeight="32.0" prefWidth="99.0" text="Register" textAlignment="CENTER" visible="false">
+         <font>
+            <Font name="Segoe UI Black Italic" size="12.0" />
+         </font>
+      </Button>
+      <PasswordField fx:id="password_register" alignment="CENTER" layoutX="509.0" layoutY="262.0" onMouseEntered="#nas5_helso" opacity="0.75" prefHeight="26.0" prefWidth="162.0" promptText="set password" visible="false">
+         <font>
+            <Font name="Segoe UI Black" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </PasswordField>
+      <TextField fx:id="password_nick" alignment="CENTER" layoutX="510.0" layoutY="85.0" onMouseEntered="#_backtoblack" opacity="0.75" prefHeight="30.0" prefWidth="162.0" promptText="Enter your name" visible="false">
+         <font>
+            <Font name="Segoe UI Black Italic" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <DatePicker fx:id="date_of_birth" layoutX="509.0" layoutY="127.0" onMouseDragged="#backtoblack" opacity="0.75" prefHeight="26.0" prefWidth="162.0" promptText="enter date of birth" stylesheets="@datapicker.css" visible="false">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </DatePicker>
+      <Line fx:id="line1" endX="-19.5" endY="13.0" fill="#fffbfb" layoutX="704.0" layoutY="44.0" startX="-19.5" startY="33.0" stroke="WHITE" strokeWidth="3.0" visible="false" />
+      <Line fx:id="line2" endX="-65.0" layoutX="749.0" layoutY="55.0" startX="-81.98583984375" startY="-0.414215087890625" stroke="WHITE" strokeWidth="3.0" visible="false" />
+      <Line fx:id="line3" endX="-88.0" endY="-12.0" layoutX="762.0" layoutY="58.0" startX="-97.107177734375" startY="-5.535552978515625" stroke="WHITE" strokeWidth="3.0" visible="false" />
+      <Line fx:id="line4" endX="155.0" endY="-124.0" layoutX="520.0" layoutY="188.0" startX="144.892822265625" startY="-133.20712280273438" stroke="WHITE" strokeWidth="3.0" visible="false" />
+      <Button fx:id="spatbutton" disable="true" layoutX="662.0" layoutY="37.0" minWidth="30.0" mnemonicParsing="false" onMouseClicked="#spatclikced" prefHeight="42.0" prefWidth="30.0" style="-fx-background-color: transparent;" text="Button" />
+      <TextField fx:id="email_register" alignment="CENTER" layoutX="509.0" layoutY="212.0" onMouseEntered="#nas5_email" opacity="0.75" prefHeight="30.0" prefWidth="162.0" promptText="Enter your email" visible="false">
+         <font>
+            <Font name="Segoe UI Black Italic" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <TextField fx:id="textfield_email" alignment="CENTER" layoutX="509.0" layoutY="211.0" onKeyTyped="#escclicked" onMouseEntered="#nas5_naciernu" opacity="0.75" prefHeight="32.0" prefWidth="162.0" promptText="name@email.com">
+         <font>
+            <Font name="Segoe UI Black Italic" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <RadioButton fx:id="female_radio" layoutX="590.0" layoutY="185.0" mnemonicParsing="false" opacity="0.75" text="Female" textFill="WHITE" visible="false">
+         <font>
+            <Font name="Segoe UI Black Italic" size="10.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="male_radio" layoutX="590.0" layoutY="162.0" mnemonicParsing="false" opacity="0.75" text="Male" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" visible="false">
+         <font>
+            <Font name="Segoe UI Black Italic" size="10.0" />
+         </font>
+      </RadioButton>
+      <Text fx:id="contains_numbers" fill="RED" layoutX="444.0" layoutY="96.0" opacity="0.76" strokeType="OUTSIDE" strokeWidth="0.0" text="Numbers in name" visible="false" wrappingWidth="56.0">
+         <font>
+            <Font name="Segoe UI Black" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="emaiisbad" fill="RED" layoutX="537.0" layoutY="255.0" opacity="0.76" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail in wrong format" visible="false" wrappingWidth="150.0">
+         <font>
+            <Font name="Segoe UI Black Italic" size="12.0" />
+         </font>
+      </Text>
+      <TextField fx:id="visregister" alignment="CENTER" layoutX="509.0" layoutY="262.0" onMouseEntered="#nas5_helso" opacity="0.75" prefHeight="26.0" prefWidth="162.0" visible="false">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font name="Segoe UI Black Italic" size="12.0" />
+         </font>
+      </TextField>
+      <Text fx:id="min4chars" fill="RED" layoutX="577.0" layoutY="303.0" opacity="0.75" strokeType="OUTSIDE" strokeWidth="0.0" text="Password must have 4 characters" visible="false" wrappingWidth="111.13671875">
+         <font>
+            <Font name="Segoe UI Black Italic" size="12.0" />
+         </font>
+      </Text>
+   </Pane>
+</AnchorPane>
