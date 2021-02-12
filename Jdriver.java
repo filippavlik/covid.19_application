@@ -1,5 +1,7 @@
 package sample;
 import java.sql.*;
+import java.util.Calendar;
+
 public class Jdriver {
     static String emailsedi;
     static Connection myconn; static Connection myconn_for_pass;static Connection myconn_for_ulozenie;
@@ -58,12 +60,32 @@ public class Jdriver {
             throwables.printStackTrace();
         }return false;}
     public static void vlozenie_novych_udajov(){
-        try{
-            stm_for_ulozenie=myconn_for_ulozenie.createStatement();
-            String sql=("INSERT INTO new_table(name,date,gender,email,password) VALUES ('\"+Text1+\"','\"+Text2+\"+\"','\"+Text3+\"','\"+Text4++\"','\"+Text4++");
-            stm_for_ulozenie.execute(sql);
-            System.out.println("zacina");
-            System.out.println("Vlozenie");
+        try{// create a mysql database connection
+            String myUrl = "jdbc:mysql://localhost/klienty";
+            Connection conn = DriverManager.getConnection(myUrl, "root", "");
+
+            // create a sql date object so we can use it in our INSERT statement
+            Calendar calendar = Calendar.getInstance();
+            java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
+
+            // the mysql insert statement
+            String query = " insert into new_table ()"
+                    + " values (?, ?, ?, ?, ?, ?)";
+
+            // create the mysql insert preparedstatement
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setInt (1, 1);
+            preparedStmt.setString (2, "Rubble");
+            preparedStmt.setString   (3, "startDate");
+            preparedStmt.setString(4, "false");
+            preparedStmt.setString    (5, "5000");
+
+            // execute the preparedstatement
+            preparedStmt.execute();
+
+            conn.close();
+
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
