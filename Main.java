@@ -23,6 +23,7 @@ public class Main extends Application {
     public static Stage new_stage=new Stage();
 
     @Override
+    //login a register form(bez menu,not resizable)
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Covid-19 Spread Simulator");
@@ -51,6 +52,7 @@ public class Main extends Application {
         suradnicay=primaryStage.getY();
 
     }
+    //(second frame after log form)
     public static void setNew_stage(Stage new_stage)throws Exception{
         Parent root_new = FXMLLoader.load(Reg.class.getResource("reg.fxml"));
         new_stage.setResizable(false);

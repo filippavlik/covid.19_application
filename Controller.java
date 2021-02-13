@@ -4,6 +4,7 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -15,9 +16,18 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
+    public ImageView correct_date_icon;
+    public ImageView correct_icon_name;
+    public ImageView wrong_icon_date;
+    public ImageView wrong_icon_name;
+    public ImageView corrrect_icon_email;
+    public ImageView correct_icon_password;
+    public ImageView wrong_icon_email;
+    public ImageView wrong_icon_password;
     @FXML
     private TextField textfield_pass;
     @FXML
@@ -78,12 +88,13 @@ public class Controller implements Initializable {
     public static Alert dg = new Alert(Alert.AlertType.ERROR, "Do you really want to exit without saving?", ButtonType.YES, ButtonType.CANCEL);
 
     //premenne použité pri JDriveri..overovanie dát
+    static Random random=new Random();
 
     boolean obsemail_bool;public static String emailpremenna;private static String passwordpremenna;
     boolean sediasponheslo;public static String emailregister;
     static boolean jespravne_nick;static boolean jespravne_date;static boolean jespravne_pohlavie;static boolean jespravne_email;
     static boolean jespravne_password;static LocalDate localDate;
-    static String nick_register;static String date;static String gender;static String email;static String password;
+    static String nick_register;static String gender;static String email;static String password;static int key;
 
 
     public Controller() {
@@ -157,6 +168,8 @@ public class Controller implements Initializable {
             obsemail_bool = Jdriver.sedi_email_s_heslom();
             if (obsemail_bool) {
                 textfield_email.setStyle("-fx-text-inner-color: green;");
+                corrrect_icon_email.setVisible(true);
+                corrrect_icon_email.setVisible(true);
                 passwordfield_password.setStyle("-fx-text-inner-color: green;");
                 textfield_pass.setStyle("-fx-text-inner-color: green;");
                 password_correct.setVisible(true);
@@ -168,9 +181,12 @@ public class Controller implements Initializable {
                 sediasponheslo=Jdriver.obsahuje_email();
              if (sediasponheslo){textfield_email.setStyle("-fx-text-inner-color: green;");password_incorrect.setVisible(true);
                  passwordfield_password.setStyle("-fx-text-inner-color: red;");
+                 wrong_icon_password.setVisible(true);corrrect_icon_email.setVisible(true);
              textfield_pass.setStyle("-fx-text-inner-color: red;");}
             else if (!obsemail_bool){email_correct.setVisible(true);
                  passwordfield_password.setStyle("-fx-text-inner-color: red;");
+                 wrong_icon_password.setVisible(true);
+                 wrong_icon_email.setVisible(true);
                  textfield_email.setStyle("-fx-text-inner-color: red;");
             }}}}
 
@@ -224,6 +240,8 @@ public class Controller implements Initializable {
         password_correct.setVisible(false);
         email_correct.setVisible(false);
         password_incorrect.setVisible(false);
+        wrong_icon_email.setVisible(false);wrong_icon_password.setVisible(false);
+        correct_icon_password.setVisible(false);corrrect_icon_email.setVisible(false);
 
 
 
@@ -233,8 +251,10 @@ public class Controller implements Initializable {
     //change colour to black in registration
     public void _backtoblack_name(MouseEvent mouseDragEvent) {
         if (MouseEvent.MOUSE_ENTERED==mouseDragEvent.getEventType()){
-            password_nick.setStyle("-fx-text-inner-color: black;");}
+            password_nick.setStyle("-fx-text-inner-color: black;");
+        wrong_icon_name.setVisible(false);correct_icon_name.setVisible(false);}
     }
+
     public static String getPasswordpremenna() {
         return passwordpremenna;
     }
@@ -242,21 +262,32 @@ public class Controller implements Initializable {
     //change colour to black in registration
     public void _backtoblack_email(MouseEvent mouseEvent) {
         if (MouseEvent.MOUSE_ENTERED.equals(mouseEvent.getEventType()))
-        {email_register.setStyle("-fx-text-fill:black");}
+        {email_register.setStyle("-fx-text-fill:black");
+        wrong_icon_email.setVisible(false);
+        corrrect_icon_email.setVisible(false);}
+    }
+
+    public void _invisible_wrong_or_correct_icons(){
+        correct_date_icon.setVisible(false);correct_icon_password.setVisible(false);corrrect_icon_email.setVisible(false);correct_icon_name.setVisible(false);
+        wrong_icon_date.setVisible(false);wrong_icon_password.setVisible(false);wrong_icon_email.setVisible(false);wrong_icon_name.setVisible(false);
     }
 
     //change colour to black in password registration
     public void _backtoblack_password(MouseEvent mouseEvent) {
         visregister.setStyle("-fx-text-fill:black");
         password_register.setStyle("-fx-text-fill:black");
+        correct_icon_password.setVisible(false);
+        wrong_icon_password.setVisible(false);
     }
 
     //change colour to black in calendar
-    public void backtoblack(MouseEvent mouseEvent) {
+    public void backtoblack_calendar(MouseEvent mouseEvent) {
         date_of_birth.getStylesheets()
                 .add(getClass()
                         .getResource("datapicker.css")
                         .toExternalForm());
+        correct_date_icon.setVisible(false);
+        wrong_icon_date.setVisible(false);
 
     }
 
@@ -292,6 +323,7 @@ public class Controller implements Initializable {
        textfield_pass.setVisible(false);
        passwordfield_password.setVisible(false);
        textfield_pass.setVisible(false);
+       _invisible_wrong_or_correct_icons();
 
 
     }
@@ -305,54 +337,84 @@ public class Controller implements Initializable {
         hlava.setLayoutY(219);brucho.setLayoutY(231);register_button.setVisible(true);register_carka.setVisible(true);login_carka.setVisible(true);
         spatbutton.setDisable(true);register_button_down.setVisible(false);email_register.setVisible(false);
         male_radio.setVisible(false);female_radio.setVisible(false);visregister.setVisible(false);password_register.setVisible(false);
+        _invisible_wrong_or_correct_icons();
+    }
+
+    public static int randomID(){
+
+        return Controller.random.nextInt()*1152;
 
     }
 
     //the process of registration
     public void registration(MouseEvent mouseEvent) throws Exception {
         {password_nick.setStyle("-fx-text-inner-color: green;");}
-        if (password_nick.getText().matches(".*\\d.*")){ password_nick.setStyle("-fx-text-inner-color: red;"); }
+        if (password_nick.getText().matches(".*\\d.*")){
+            wrong_icon_name.setVisible(true);
+            password_nick.setStyle("-fx-text-inner-color: red;"); }
         if (male_radio.isSelected() || female_radio.isSelected())
-        {if (male_radio.isSelected() && female_radio.isSelected()){
-            male_radio.setStyle("-fx-text-fill: red;"); female_radio.setStyle("-fx-text-fill: red;");
-        }else {if(male_radio.isSelected()){male_radio.setStyle("-fx-text-fill: green;");
-        female_radio.setStyle("-fx-text-fill: white");} else if (female_radio.isSelected()){
-            female_radio.setStyle("-fx-text-fill: green;");male_radio.setStyle("-fx-text-fill:white");}
-        }}else {male_radio.setStyle("-fx-text-fill: red;"); female_radio.setStyle("-fx-text-fill: red;");}
+        {
+            if (male_radio.isSelected() && female_radio.isSelected()){
+                male_radio.setStyle("-fx-text-fill: red;"); female_radio.setStyle("-fx-text-fill: red;");
+            }else
+                {if(male_radio.isSelected()){
+                    male_radio.setStyle("-fx-text-fill: green;");
+                    female_radio.setStyle("-fx-text-fill: white");}
+                    else
+                        if (female_radio.isSelected()){
+                            female_radio.setStyle("-fx-text-fill: green;");
+                            male_radio.setStyle("-fx-text-fill:white");}
+                        }}else {male_radio.setStyle("-fx-text-fill: red;");
+                                female_radio.setStyle("-fx-text-fill: red;");}
         emailregister=email_register.getText();
         emailregister=emailregister.replace(" ","");
         if (!emailregister.contains("@") || !emailregister.contains(".")) {
            email_register.setStyle("-fx-text-fill:red");
+           wrong_icon_email.setVisible(true);
         }else if (Jdriver.obsahuje_email()){
-            email_register.setStyle("-fx-text-fill:red"); }
-        else email_register.setStyle("-fx-text-fill:green");
+            email_register.setStyle("-fx-text-fill:red");
+            wrong_icon_email.setVisible(true);}
+        else {email_register.setStyle("-fx-text-fill:green");
+            corrrect_icon_email.setVisible(true);}
         if (visregister.isVisible() ){
-        if (visregister.getLength()>=4){visregister.setStyle("-fx-text-fill:green");jespravne_password=true;
-        password=visregister.getText();}else {visregister.setStyle("-fx-text-fill:red"); }}
-        if (password_register.isVisible()){if (password_register.getLength()>=4){
-            password_register.setStyle("-fx-text-fill:green");jespravne_password=true;password=password_register.getText();}
-        else {password_register.setStyle("-fx-text-fill:red");}
+        if (visregister.getLength()>=4){
+            visregister.setStyle("-fx-text-fill:green");
+            correct_icon_password.setVisible(true);
+            jespravne_password=true;
+            password=visregister.getText();}
+        else {visregister.setStyle("-fx-text-fill:red"); }}
+        if (password_register.isVisible()){
+            if (password_register.getLength()>=4){
+                password_register.setStyle("-fx-text-fill:green");jespravne_password=true;password=password_register.getText();}
+            else {password_register.setStyle("-fx-text-fill:red");
+                    wrong_icon_password.setVisible(true);}
             localDate=date_of_birth.getValue();
         if (!password_nick.getText().matches(".*\\d.*")){jespravne_nick=true;nick_register=password_nick.getText();}
-        if (localDate.getYear()<=2020 && localDate.getYear()>=1950){jespravne_date=true;date=localDate.toString();date_of_birth.getStylesheets()
+        if (localDate.getYear()<=2020 && localDate.getYear()>=1950){jespravne_date=true;localDate=localDate;date_of_birth.getStylesheets()
                 .add(getClass()
                         .getResource("datapicker_green.css")
-                        .toExternalForm());}
+                        .toExternalForm());
+                correct_date_icon.setVisible(true);}
         else{date_of_birth.getStylesheets()
                 .add(getClass()
                         .getResource("datapicker_wrong.css")
-                        .toExternalForm());}
-        if (female_radio.isSelected()){if (!male_radio.isSelected())jespravne_pohlavie=true;gender="woman";}
-        else if (male_radio.isSelected()){if (!female_radio.isSelected())jespravne_pohlavie=true;gender="man";}
-        if (!emailregister.contains("@") || !emailregister.contains(".") || !Jdriver.obsahuje_email())
-        {jespravne_email=true;email=email_register.getText();}
+                        .toExternalForm());
+                wrong_icon_date.setVisible(true);}
+        if (female_radio.isSelected()){
+            if (!male_radio.isSelected())
+                jespravne_pohlavie=true;gender="woman";}
+            else if (male_radio.isSelected()){if (!female_radio.isSelected())jespravne_pohlavie=true;gender="man";}
+            if (!emailregister.contains("@") || !emailregister.contains(".") || !Jdriver.obsahuje_email())
+                {jespravne_email=true;email=email_register.getText();}
         if (jespravne_nick&&jespravne_date&&jespravne_pohlavie&&jespravne_email&&jespravne_password){
+            key=randomID();
             Jdriver.vlozenie_novych_udajov();
             Stage zavri= (Stage) passwordfield_password.getScene().getWindow();
             zavri.close();
             Main.setNew_stage(Main.new_stage);}
 
     }}
+
 
 
 }

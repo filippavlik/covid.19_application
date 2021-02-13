@@ -10,21 +10,21 @@ public class Jdriver {
 
     static {
         try {
-            myconn = DriverManager.getConnection("jdbc:mysql://localhost:3306/klienty","root","7262099504Qq");
+            myconn = DriverManager.getConnection("jdbc:mysql://localhost:3306/klienty","root","");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
     static {
         try {
-            myconn_for_pass = DriverManager.getConnection("jdbc:mysql://localhost:3306/klienty","root","7262099504Qq");
+            myconn_for_pass = DriverManager.getConnection("jdbc:mysql://localhost:3306/klienty","root","");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
     static {
         try {
-            myconn_for_ulozenie= DriverManager.getConnection("jdbc:mysql://localhost:3306/klienty","root","7262099504Qq");
+            myconn_for_ulozenie= DriverManager.getConnection("jdbc:mysql://localhost:3306/klienty","root","");
         } catch (SQLException  throwables) {
             throwables.printStackTrace();
         }
@@ -60,9 +60,9 @@ public class Jdriver {
             throwables.printStackTrace();
         }return false;}
     public static void vlozenie_novych_udajov(){
-        try{// create a mysql database connection
-            String myUrl = "jdbc:mysql://localhost/klienty";
-            Connection conn = DriverManager.getConnection(myUrl, "root", "");
+        try{
+            // create a mysql database connection
+            Class.forName("com.mysql.jdbc.Driver");
 
             // create a sql date object so we can use it in our INSERT statement
             Calendar calendar = Calendar.getInstance();
@@ -73,20 +73,22 @@ public class Jdriver {
                     + " values (?, ?, ?, ?, ?, ?)";
 
             // create the mysql insert preparedstatement
-            PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.setInt (1, 1);
-            preparedStmt.setString (2, "Rubble");
-            preparedStmt.setString   (3, "startDate");
-            preparedStmt.setString(4, "false");
-            preparedStmt.setString    (5, "5000");
+            PreparedStatement preparedStmt = myconn_for_ulozenie.prepareStatement(query);
+            preparedStmt.setInt (1, Controller.randomID());
+            preparedStmt.setString (2, Controller.nick_register);
+            preparedStmt.setDate   (3, Date.valueOf(Controller.localDate));
+            preparedStmt.setString(4, Controller.gender);
+            preparedStmt.setString    (5, Controller.emailregister);
+            preparedStmt.setString    (6, Controller.password);
+
 
             // execute the preparedstatement
             preparedStmt.execute();
 
-            conn.close();
+            myconn_for_ulozenie.close();
 
 
-        } catch (SQLException throwables) {
+        } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }
     }}
