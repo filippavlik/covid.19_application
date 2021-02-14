@@ -79,7 +79,7 @@ public class Main extends Application {
         System.out.println(suradnicax);
         System.out.println(suradnicay);
         new_stage.setY(suradnicay);
-        scene1=new Scene(root_new,696,388);
+        scene1=new Scene(root_new);
         new_stage.setScene(scene1);
         new_stage.show();
     }
