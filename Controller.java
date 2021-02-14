@@ -165,7 +165,7 @@ public class Controller implements Initializable {
             passwordpremenna=textfield_pass.getText();}
             if (textfield_email.getText().contains("@") && textfield_email.getText().contains("."))
                 emailpremenna = textfield_email.getText().replace(" ","");
-            obsemail_bool = Jdriver.sedi_email_s_heslom();
+                obsemail_bool = Jdriver.sedi_email_s_heslom();
             if (obsemail_bool) {
                 textfield_email.setStyle("-fx-text-inner-color: green;");
                 corrrect_icon_email.setVisible(true);

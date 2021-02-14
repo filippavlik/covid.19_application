@@ -1,37 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane prefHeight="392.0" prefWidth="694.0" styleClass="style.css" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Reg">
+<AnchorPane prefHeight="392.0" prefWidth="694.0" styleClass="style.css" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Reg">
    <children>
-      <TabPane layoutY="-5.0" prefHeight="330.0" prefWidth="694.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab text="Untitled Tab 1">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <ScrollPane opacity="0.9" prefHeight="302.0" prefWidth="694.0">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                          </content>
-                        </ScrollPane>
-                     </children></AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="Untitled Tab 2">
-               <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <ScrollPane opacity="0.9" prefHeight="301.0" prefWidth="694.0">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                          </content>
-                        </ScrollPane>
-                     </children>
-                  </AnchorPane>
-               </content></Tab>
-        </tabs>
-      </TabPane>
+      <HBox alignment="BOTTOM_CENTER" layoutY="284.0" prefHeight="108.0" prefWidth="694.0">
+         <children>
+            <TabPane prefHeight="108.0" prefWidth="694.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Furniture">
+                     <content>
+                        <AnchorPane opacity="0.8" prefHeight="138.0" prefWidth="694.0">
+                           <children>
+                              <ScrollPane layoutY="-1.0" opacity="0.8" prefHeight="89.0" prefWidth="694.0">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="116.0" prefWidth="694.0" />
+                                </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Appliances">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.8" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ScrollPane layoutY="-1.0" opacity="0.8" prefHeight="94.0" prefWidth="694.0">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="111.0" prefWidth="695.0" />
+                                </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                <Tab text="Rooms">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.8" prefHeight="110.0" prefWidth="718.0">
+                           <children>
+                              <ScrollPane opacity="0.8" prefHeight="92.0" prefWidth="694.0">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.8" prefHeight="106.0" prefWidth="695.0" />
+                                </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </HBox>
+      <Line endX="106.27874755859375" endY="13.121320724487305" layoutY="30.0" startX="95.4000244140625" startY="-1.6000003814697266" stroke="WHITE" strokeWidth="4.0" />
+      <Line endX="97.656982421875" endY="-4.0" layoutX="-2.0" layoutY="46.0" startX="107.4000244140625" startY="-17.599998474121094" stroke="WHITE" strokeWidth="4.0" />
+      <Line endX="100.0" layoutX="-34.0" layoutY="37.0" startX="81.4000015258789" stroke="WHITE" strokeWidth="4.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#157cdd" height="20.0" layoutX="132.0" layoutY="27.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="4.0" style="-fx-fill: transparent;" width="23.0" />
    </children>
 </AnchorPane>

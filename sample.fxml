@@ -28,9 +28,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Line endX="100.0" layoutX="-34.0" layoutY="37.0" startX="81.4000015258789" stroke="#fffdfd" strokeWidth="3.0" />
-      <Line endX="106.27874755859375" endY="13.121320724487305" fill="WHITE" layoutY="30.0" startX="95.4000244140625" startY="-1.6000003814697266" stroke="WHITE" strokeWidth="3.0" />
-      <Line endX="97.656982421875" endY="-4.0" fill="#fdfbfb" layoutX="-2.0" layoutY="46.0" startX="107.4000244140625" startY="-17.599998474121094" stroke="WHITE" strokeWidth="3.0" />
+      <Line endX="100.0" layoutX="-34.0" layoutY="37.0" startX="81.4000015258789" stroke="#fffdfd" strokeWidth="4.0" />
+      <Line endX="106.27874755859375" endY="13.121320724487305" fill="WHITE" layoutY="30.0" startX="95.4000244140625" startY="-1.6000003814697266" stroke="WHITE" strokeWidth="4.0" />
+      <Line endX="97.656982421875" endY="-4.0" fill="#fdfbfb" layoutX="-2.0" layoutY="46.0" startX="107.4000244140625" startY="-17.599998474121094" stroke="WHITE" strokeWidth="4.0" />
       <Text fill="WHITE" layoutX="14.0" layoutY="369.0" opacity="0.72" strokeType="OUTSIDE" strokeWidth="0.0" text="©  Filip Pavlík __eufordigital.eu" wrappingWidth="202.40003051757822">
          <font>
             <Font name="Segoe UI Black Italic" size="13.0" />
