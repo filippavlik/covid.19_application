@@ -51,6 +51,19 @@
                         </AnchorPane>
                   </content>
                 </Tab>
+                  <Tab text="Doors and Windows">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.8" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ScrollPane layoutX="-17.0" layoutY="-2.0" opacity="0.8" prefHeight="95.0" prefWidth="714.0">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.8" prefHeight="95.0" prefWidth="714.0" />
+                                </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
               </tabs>
             </TabPane>
          </children>

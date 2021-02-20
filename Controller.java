@@ -3,6 +3,7 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -15,19 +16,29 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.util.Random;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     public ImageView correct_date_icon;
+    @FXML
     public ImageView correct_icon_name;
+    @FXML
     public ImageView wrong_icon_date;
+    @FXML
     public ImageView wrong_icon_name;
+    @FXML
     public ImageView corrrect_icon_email;
+    @FXML
     public ImageView correct_icon_password;
+    @FXML
     public ImageView wrong_icon_email;
+    @FXML
     public ImageView wrong_icon_password;
+    @FXML
+    public  Text netwrk_problems_text;
     @FXML
     private TextField textfield_pass;
     @FXML
@@ -96,7 +107,6 @@ public class Controller implements Initializable {
     static boolean jespravne_password;static LocalDate localDate;
     static String nick_register;static String gender;static String email;static String password;static int key;
 
-
     public Controller() {
     }
 
@@ -118,9 +128,15 @@ public class Controller implements Initializable {
             dialoga.setVisible(true);
             passwordfield_password.setEditable(false);
             textfield_email.setEditable(false);
+            netwrk_problems_text.setVisible(false);
         }
         if (textfield_email.isVisible()){
         if (keyEvent.getCode().getCode() == KeyCode.ENTER.getCode()) {
+            textfield_email.setCursor(Cursor.WAIT);
+            textfield_pass.setCursor(Cursor.WAIT);
+            Jdriver.otestuj_email();
+            if (Jdriver.status){
+                Jdriver.otestuj_email_heslo();
             if (passwordfield_password.isVisible()){
                 passwordfield_password.getText();
                 if (textfield_pass.isVisible()){
@@ -143,7 +159,11 @@ public class Controller implements Initializable {
                 emailpremenna = textfield_email.getText();
                 sediasponheslo=Jdriver.obsahuje_email();
                 if (sediasponheslo){textfield_email.setStyle("-fx-text-inner-color: green;");password_incorrect.setVisible(true);   }
-                else if (!obsemail_bool){email_correct.setVisible(true);}}}
+                else if (!obsemail_bool){email_correct.setVisible(true);}}}else {
+                textfield_email.setCursor(Cursor.TEXT);
+                textfield_pass.setCursor(Cursor.TEXT);
+                netwrk_problems_text.setVisible(true);
+                }}
 
         }
 
@@ -152,6 +172,10 @@ public class Controller implements Initializable {
 
     //fn checks email and pass in login, if it is true,it opens next window
     public void loginclicked(MouseEvent mouseEvent) throws Exception {
+        netwrk_problems_text.setVisible(false);
+        Jdriver.otestuj_email();
+        if (Jdriver.status){
+            Jdriver.otestuj_email_heslo();
         if (mouseEvent.getEventType() == MouseEvent.MOUSE_CLICKED) {
             if (passwordfield_password.isVisible()){
                 passwordfield_password.getText();
@@ -188,7 +212,7 @@ public class Controller implements Initializable {
                  wrong_icon_password.setVisible(true);
                  wrong_icon_email.setVisible(true);
                  textfield_email.setStyle("-fx-text-inner-color: red;");
-            }}}}
+            }}}}else netwrk_problems_text.setVisible(true);}
 
     //fn makes visible and hide password in login and registration
     public void visibclick(MouseEvent mouseEvent){
@@ -212,6 +236,7 @@ public class Controller implements Initializable {
 
     //fn exits app,setting dialog window
     public void eit1(MouseEvent mouseEvent) {
+        netwrk_problems_text.setVisible(false);
         dg.setHeaderText("Exit without saving?");
         dg.setTitle("Exit");
         dg.setX(Main.suradnicax + 40);
@@ -234,6 +259,7 @@ public class Controller implements Initializable {
     //change colour to black in email and password log
     public void _backtoblack_loginemail(MouseEvent mouseEvent) {
         if (mouseEvent.getEventType()==MouseEvent.MOUSE_ENTERED)
+            netwrk_problems_text.setVisible(false);
             textfield_email.setStyle("-fx-text-inner-color: black;");
         passwordfield_password.setStyle("-fx-text-inner-color: black;");
         textfield_pass.setStyle("-fx-text-inner-color: black;");
@@ -251,6 +277,7 @@ public class Controller implements Initializable {
     //change colour to black in registration
     public void _backtoblack_name(MouseEvent mouseDragEvent) {
         if (MouseEvent.MOUSE_ENTERED==mouseDragEvent.getEventType()){
+            netwrk_problems_text.setVisible(false);
             password_nick.setStyle("-fx-text-inner-color: black;");
         wrong_icon_name.setVisible(false);correct_icon_name.setVisible(false);}
     }
@@ -261,6 +288,7 @@ public class Controller implements Initializable {
 
     //change colour to black in registration
     public void _backtoblack_email(MouseEvent mouseEvent) {
+        netwrk_problems_text.setVisible(false);
         if (MouseEvent.MOUSE_ENTERED.equals(mouseEvent.getEventType()))
         {email_register.setStyle("-fx-text-fill:black");
         wrong_icon_email.setVisible(false);
@@ -274,6 +302,7 @@ public class Controller implements Initializable {
 
     //change colour to black in password registration
     public void _backtoblack_password(MouseEvent mouseEvent) {
+        netwrk_problems_text.setVisible(false);
         visregister.setStyle("-fx-text-fill:black");
         password_register.setStyle("-fx-text-fill:black");
         correct_icon_password.setVisible(false);
@@ -282,6 +311,7 @@ public class Controller implements Initializable {
 
     //change colour to black in calendar
     public void backtoblack_calendar(MouseEvent mouseEvent) {
+        netwrk_problems_text.setVisible(false);
         date_of_birth.getStylesheets()
                 .add(getClass()
                         .getResource("datapicker.css")
@@ -294,6 +324,7 @@ public class Controller implements Initializable {
 
     //change colour to black in.visibility componentov
     public void register_clicked(MouseEvent mouseEvent) {
+        netwrk_problems_text.setVisible(false);
         password_nick.setVisible(true);
         password_register.setVisible(true);
         date_of_birth.setVisible(true);
@@ -330,6 +361,7 @@ public class Controller implements Initializable {
 
     //from registration formulat back to login
     public void spatclikced(MouseEvent mouseEvent) {
+        netwrk_problems_text.setVisible(false);
         password_nick.setVisible(false);password_register.setVisible(false);date_of_birth.setVisible(false);
         line1.setVisible(false);line2.setVisible(false);line3.setVisible(false);line4.setVisible(false);
         passwordfield_password.setVisible(true);textfield_email.setVisible(true);
@@ -348,10 +380,12 @@ public class Controller implements Initializable {
 
     //the process of registration
     public void registration(MouseEvent mouseEvent) throws Exception {
-        {password_nick.setStyle("-fx-text-inner-color: green;");}
-        if (password_nick.getText().matches(".*\\d.*")){
-            wrong_icon_name.setVisible(true);
-            password_nick.setStyle("-fx-text-inner-color: red;"); }
+        Jdriver.otestujcom();
+         netwrk_problems_text.setVisible(false);
+        if (Jdriver.status){
+            if (password_nick.getText()==null || password_nick.getText().matches(".*\\d.*")){
+            password_nick.setStyle("-fx-text-inner-color: green;");}
+            else {password_nick.setStyle("-fx-text-inner-color: red;");wrong_icon_name.setVisible(true);}
         if (male_radio.isSelected() || female_radio.isSelected())
         {
             if (male_radio.isSelected() && female_radio.isSelected()){
@@ -387,10 +421,11 @@ public class Controller implements Initializable {
             if (password_register.getLength()>=4){
                 password_register.setStyle("-fx-text-fill:green");jespravne_password=true;password=password_register.getText();}
             else {password_register.setStyle("-fx-text-fill:red");
-                    wrong_icon_password.setVisible(true);}
+                    wrong_icon_password.setVisible(true);}}
             localDate=date_of_birth.getValue();
         if (!password_nick.getText().matches(".*\\d.*")){jespravne_nick=true;nick_register=password_nick.getText();}
-        if (localDate.getYear()<=2020 && localDate.getYear()>=1950){jespravne_date=true;localDate=localDate;date_of_birth.getStylesheets()
+        if (date_of_birth.getValue()!=null){
+        if (localDate.getYear()<=2020 && localDate.getYear()>=1950){jespravne_date=true;date_of_birth.getStylesheets()
                 .add(getClass()
                         .getResource("datapicker_green.css")
                         .toExternalForm());
@@ -399,7 +434,8 @@ public class Controller implements Initializable {
                 .add(getClass()
                         .getResource("datapicker_wrong.css")
                         .toExternalForm());
-                wrong_icon_date.setVisible(true);}
+                wrong_icon_date.setVisible(true);}}
+        else{wrong_icon_date.setVisible(true);}
         if (female_radio.isSelected()){
             if (!male_radio.isSelected())
                 jespravne_pohlavie=true;gender="woman";}
@@ -411,13 +447,15 @@ public class Controller implements Initializable {
             Jdriver.vlozenie_novych_udajov();
             Stage zavri= (Stage) passwordfield_password.getScene().getWindow();
             zavri.close();
-            Main.setNew_stage(Main.new_stage);}
+            Main.setNew_stage(Main.new_stage);}}else netwrk_problems_text.setVisible(true);
 
     }}
 
 
 
-}
+
+
+
 
 
 

@@ -7,31 +7,22 @@ public class Jdriver {
     static Connection myconn; static Connection myconn_for_pass;static Connection myconn_for_ulozenie;
     static Statement stm;   static Statement stm_for_pass;static Statement stm_for_ulozenie;
     static ResultSet rst;   static ResultSet rst_for_pass;
+   //var tests if the network connection with server is good
+    static boolean status;
 
-    static {
+
+    public static void otestuj_email(){
         try {
             myconn = DriverManager.getConnection("jdbc:mysql://localhost:3306/klienty","root","");
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-    }
-    static {
-        try {
-            myconn_for_pass = DriverManager.getConnection("jdbc:mysql://localhost:3306/klienty","root","");
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-    }
-    static {
-        try {
-            myconn_for_ulozenie= DriverManager.getConnection("jdbc:mysql://localhost:3306/klienty","root","");
-        } catch (SQLException  throwables) {
-            throwables.printStackTrace();
-        }
-    }
+            status=true;
 
+        } catch (Exception throwables) {
+            status=false;
+        }
+    }
     public static boolean obsahuje_email()  {
-        try{
+
+        try{if (status){
         stm=myconn.createStatement();
         rst=stm.executeQuery("select * from new_table");
 
@@ -39,28 +30,49 @@ public class Jdriver {
             emailsedi=rst.getString("email");
             if (emailsedi.equals(Controller.emailpremenna)||emailsedi.equals(Controller.emailregister))
             {return true;}
-        }
+        }}
         } catch (SQLException throwables) {
             System.out.println(throwables.getErrorCode());
         }
 
         return false;
     }
-    public static boolean sedi_email_s_heslom(){
-        try{
-            stm_for_pass=myconn_for_pass.createStatement();
-            rst_for_pass=stm_for_pass.executeQuery("select * from new_table");
+
+    public static void otestuj_email_heslo(){
+        try {
+            status=true;
+            myconn_for_pass = DriverManager.getConnection("jdbc:mysql://localhost:3306/klienty","root","");
+        } catch (Exception throwables) {
+            status=false;
+        }
+    }
+    public static boolean sedi_email_s_heslom(){{
+
+        if (status){
+        try {
+            stm_for_pass = myconn_for_pass.createStatement();
+            rst_for_pass = stm_for_pass.executeQuery("select * from new_table");
             obsahuje_email();
 
-            while (rst_for_pass.next()){
-                if (rst_for_pass.getString("email").equals(Controller.emailpremenna)&&rst_for_pass.getString("password").equals(Controller.getPasswordpremenna()))
+            while (rst_for_pass.next()) {
+                if (rst_for_pass.getString("email").equals(Controller.emailpremenna) && rst_for_pass.getString("password").equals(Controller.getPasswordpremenna()))
                     return true;
-            }
-    } catch (SQLException throwables) {
+             }
+        } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }return false;}
+        }}return false;}}
+
+    public static void otestujcom(){
+            try {
+                myconn_for_ulozenie= DriverManager.getConnection("jdbc:mysql://localhost:3306/klienty","root","");
+                status=true;
+            } catch (Exception  throwables) {
+                status=false;
+            }
+        }
     public static void vlozenie_novych_udajov(){
-        try{
+
+        try{if (status){
             // create a mysql database connection
             Class.forName("com.mysql.jdbc.Driver");
 
@@ -88,7 +100,7 @@ public class Jdriver {
             myconn_for_ulozenie.close();
 
 
-        } catch (SQLException | ClassNotFoundException throwables) {
+        }} catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }
     }}

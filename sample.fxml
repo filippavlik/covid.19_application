@@ -238,5 +238,10 @@
             <Image url="@../resources/correct%20icon.png" />
          </image>
       </ImageView>
+      <Text fx:id="netwrk_problems_text" fill="RED" layoutX="356.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check your network connection" visible="false" wrappingWidth="181.40003051757822">
+         <font>
+            <Font name="Segoe UI Black Italic" size="18.0" />
+         </font>
+      </Text>
    </Pane>
 </AnchorPane>
