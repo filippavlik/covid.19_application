@@ -16,7 +16,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.sql.Time;
 import java.time.LocalDate;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -314,7 +313,7 @@ public class Controller implements Initializable {
         netwrk_problems_text.setVisible(false);
         date_of_birth.getStylesheets()
                 .add(getClass()
-                        .getResource("datapicker.css")
+                        .getResource("sample/datapicker.css")
                         .toExternalForm());
         correct_date_icon.setVisible(false);
         wrong_icon_date.setVisible(false);
@@ -427,12 +426,12 @@ public class Controller implements Initializable {
         if (date_of_birth.getValue()!=null){
         if (localDate.getYear()<=2020 && localDate.getYear()>=1950){jespravne_date=true;date_of_birth.getStylesheets()
                 .add(getClass()
-                        .getResource("datapicker_green.css")
+                        .getResource("sample/datapicker_green.css")
                         .toExternalForm());
                 correct_date_icon.setVisible(true);}
         else{date_of_birth.getStylesheets()
                 .add(getClass()
-                        .getResource("datapicker_wrong.css")
+                        .getResource("sample/datapicker_wrong.css")
                         .toExternalForm());
                 wrong_icon_date.setVisible(true);}}
         else{wrong_icon_date.setVisible(true);}
