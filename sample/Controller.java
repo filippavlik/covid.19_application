@@ -126,7 +126,7 @@ public class Controller implements Initializable {
     }
 
     //open dialog window for exit
-    public void escclicked(KeyEvent keyEvent) {
+    public void escclicked(KeyEvent keyEvent) throws Exception {
         if (keyEvent.getCode().getCode() == KeyCode.ESCAPE.getCode()) {
             dialoga.setVisible(true);
             passwordfield_password.setEditable(false);
@@ -158,6 +158,10 @@ public class Controller implements Initializable {
                 passwordfield_password.setStyle("-fx-text-inner-color: green;");
                 textfield_pass.setStyle("-fx-text-inner-color: green;");
                 password_correct.setVisible(true);
+                Stage zavri= (Stage) passwordfield_password.getScene().getWindow();
+                zavri.close();
+                Main.setNew_stage(Main.new_stage);
+
             }else {
                 emailpremenna = textfield_email.getText();
                 sediasponheslo=Jdriver.obsahuje_email();

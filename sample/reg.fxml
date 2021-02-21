@@ -5,13 +5,64 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane styleClass="style.css" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Reg">
+<AnchorPane fx:id="anchor_new" prefHeight="392.0" prefWidth="694.4" styleClass="style1.css" stylesheets="@style1.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Reg">
    <children>
-      <HBox alignment="BOTTOM_CENTER" layoutY="284.0">
+      <HBox alignment="BOTTOM_CENTER" layoutY="284.0" AnchorPane.bottomAnchor="0.0">
          <children>
-            <TabPane prefHeight="108.0" prefWidth="694.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE">
+            <TabPane prefHeight="108.0" prefWidth="695.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE">
               <tabs>
+                <Tab text="Rooms">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.8" prefHeight="110.0" prefWidth="718.0">
+                           <children>
+                              <HBox prefHeight="79.0" prefWidth="694.0" />
+                              <ScrollPane opacity="0.8" prefHeight="92.0" prefWidth="694.0">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.8" prefHeight="106.0" prefWidth="695.0">
+                                       <children>
+                                          <HBox fx:id="living_room" alignment="CENTER_RIGHT" layoutX="24.0" layoutY="14.0" prefHeight="51.0" prefWidth="72.0">
+                                             <children>
+                                                <Pane nodeOrientation="RIGHT_TO_LEFT" prefHeight="51.0" prefWidth="72.0" style="-fx-background-color: #acd3fa; -fx-border-color: black;">
+                                                   <cursor>
+                                                      <Cursor fx:constant="DEFAULT" />
+                                                   </cursor>
+                                                   <children>
+                                                      <Label alignment="CENTER" prefHeight="31.0" prefWidth="74.0" text="Living" textAlignment="CENTER" textFill="#030303">
+                                                         <font>
+                                                            <Font name="Segoe UI Black Italic" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label alignment="CENTER" layoutX="11.0" layoutY="27.0" text="room">
+                                                         <font>
+                                                            <Font name="Segoe UI Black Italic" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </Pane>
+                                             </children>
+                                          </HBox>
+                                       </children></AnchorPane>
+                                </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Doors and Windows">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.8" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ScrollPane layoutX="-17.0" layoutY="-1.0" opacity="0.8" prefHeight="95.0" prefWidth="712.0">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.8" prefHeight="128.0" prefWidth="714.0" />
+                                </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
                 <Tab text="Furniture">
                      <content>
                         <AnchorPane opacity="0.8" prefHeight="138.0" prefWidth="694.0">
@@ -32,32 +83,6 @@
                               <ScrollPane layoutY="-1.0" opacity="0.8" prefHeight="94.0" prefWidth="694.0">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="111.0" prefWidth="695.0" />
-                                </content>
-                              </ScrollPane>
-                           </children>
-                        </AnchorPane>
-                    </content>
-                  </Tab>
-                <Tab text="Rooms">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.8" prefHeight="110.0" prefWidth="718.0">
-                           <children>
-                              <ScrollPane opacity="0.8" prefHeight="92.0" prefWidth="694.0">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.8" prefHeight="106.0" prefWidth="695.0" />
-                                </content>
-                              </ScrollPane>
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </Tab>
-                  <Tab text="Doors and Windows">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.8" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <ScrollPane layoutX="-17.0" layoutY="-2.0" opacity="0.8" prefHeight="95.0" prefWidth="714.0">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.8" prefHeight="95.0" prefWidth="714.0" />
                                 </content>
                               </ScrollPane>
                            </children>

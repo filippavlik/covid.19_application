@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -21,24 +22,19 @@ public class Reg {
     public Button maximalise_button;
     public DialogPane dialog_exit;
     public static Alert alertpane = new Alert(Alert.AlertType.ERROR, "Do you really want to exit without saving?", ButtonType.YES, ButtonType.CANCEL);
+    public AnchorPane anchor_new;
 
     //fn exites the application
     public void exit(javafx.scene.input.MouseEvent mouseEvent){
         alertpane.setHeaderText("Exit without saving?");
         alertpane.setTitle("Exit");
-        alertpane.setX(Main.suradnicax + 40);
-        alertpane.setY(Main.suradnicay + 50);
+        alertpane.setX(Main.suradnicax1+40);
+        alertpane.setY(Main.suradnicay1+50);
         alertpane.setHeight(200);
-        /*passwordfield_password.setEditable(false);
-        textfield_email.setEditable(false);
-        textfield_pass.setEditable(false);*/
         alertpane.showAndWait();
         if (alertpane.getResult() == ButtonType.YES) {
             System.exit(0);
-        } else {
-            /*passwordfield_password.setEditable(true);
-            textfield_email.setEditable(true);
-            textfield_pass.setEditable(true);*/
+
     }
 }
     //fn minimalises the app
@@ -48,9 +44,15 @@ public class Reg {
     }
     //fn maximalise the app
     public void maximalise(){
+        if (!Main.new_stage.isMaximized()){
         Main.new_stage.setResizable(true);
         Main.new_stage.setMaximized(true);
-
+        Main.new_stage.show();}
+        else {
+            Main.new_stage.setMaximized(false);
+            Main.new_stage.setWidth(694.4);
+            Main.new_stage.setHeight(392);
+        }
     }
 
 

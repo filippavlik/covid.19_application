@@ -55,29 +55,27 @@ public class Main extends Application {
     //(second frame after log form)
     public static void setNew_stage(Stage new_stage)throws Exception{
         Parent root_new = FXMLLoader.load(Reg.class.getResource("reg.fxml"));
-        new_stage.setResizable(false);
         new_stage.setTitle("Covid-19 Spread Simulator");
         Image icona=new Image("resources/chat.png");
         new_stage.getIcons().add(icona);
         new_stage.initStyle(StageStyle.UNDECORATED);
+        new_stage.setResizable(true);
 
 
-        root_new.setOnMousePressed(event -> {
-            xOffset1 = event.getSceneX();
-            yOffset1 = event.getSceneY();
-            suradnicax1=event.getScreenX() - xOffset1;
-            suradnicay1=event.getScreenY() - yOffset1;
+
+        root_new.setOnMousePressed(event1 -> {
+            xOffset1 = event1.getSceneX();
+            yOffset1 = event1.getSceneY();
+            suradnicax1=event1.getScreenX() - xOffset1;
+            suradnicay1=event1.getScreenY() - yOffset1;
         });
-        root_new.setOnMouseDragged(event -> {
-            suradnicax1=event.getScreenX() - xOffset1;
-            suradnicay1=event.getScreenY() - yOffset1;
+        root_new.setOnMouseDragged(event1 -> {
+            suradnicax1=event1.getScreenX() - xOffset1;
+            suradnicay1=event1.getScreenY() - yOffset1;
             new_stage.setX(suradnicax1);
             new_stage.setY(suradnicay1);
         });
-        AnchorPane anchor1=new AnchorPane();
         new_stage.setX(suradnicax);
-        System.out.println(suradnicax);
-        System.out.println(suradnicay);
         new_stage.setY(suradnicay);
         scene1=new Scene(root_new);
         new_stage.setScene(scene1);
