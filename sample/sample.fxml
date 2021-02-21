@@ -130,7 +130,7 @@
             <Font name="Segoe UI Black Italic" size="18.0" />
          </font>
       </Text>
-      <Button fx:id="register_button_down" layoutX="570.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#registration" prefHeight="32.0" prefWidth="99.0" text="Register" textAlignment="CENTER" visible="false">
+      <Button fx:id="register_button_down" layoutX="570.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#registration" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: transparent;" text="Register" textAlignment="CENTER" textFill="WHITE" visible="false">
          <font>
             <Font name="Segoe UI Black Italic" size="12.0" />
          </font>
@@ -243,5 +243,6 @@
             <Font name="Segoe UI Black Italic" size="18.0" />
          </font>
       </Text>
+      <Line fx:id="register_carka_down" endX="9.5999755859375" fill="#fffcfc" layoutX="639.0" layoutY="359.0" startX="-50.4000244140625" stroke="WHITE" strokeWidth="2.0" visible="false" />
    </Pane>
 </AnchorPane>

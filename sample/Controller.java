@@ -1,6 +1,7 @@
 package sample;
 
 
+import com.mysql.cj.x.protobuf.MysqlxCrud;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
@@ -14,7 +15,9 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.QuadCurve;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.w3c.dom.events.EventTarget;
 
+import javax.accessibility.AccessibleAction;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.Random;
@@ -38,6 +41,7 @@ public class Controller implements Initializable {
     public ImageView wrong_icon_password;
     @FXML
     public  Text netwrk_problems_text;
+    public Line register_carka_down;
     @FXML
     private TextField textfield_pass;
     @FXML
@@ -337,7 +341,7 @@ public class Controller implements Initializable {
         register_button_down.setVisible(true);
         register_button.setDisable(true);
         login_clicked.setDisable(true);
-
+        register_carka_down.setVisible(true);
         passwordfield_password.setVisible(false);
         textfield_email.setVisible(false);
         textfield_pass.setVisible(false);
@@ -368,7 +372,7 @@ public class Controller implements Initializable {
         hlava.setLayoutY(219);brucho.setLayoutY(231);register_button.setVisible(true);register_carka.setVisible(true);login_carka.setVisible(true);
         spatbutton.setDisable(true);register_button_down.setVisible(false);email_register.setVisible(false);
         male_radio.setVisible(false);female_radio.setVisible(false);visregister.setVisible(false);password_register.setVisible(false);
-        _invisible_wrong_or_correct_icons();
+        _invisible_wrong_or_correct_icons();register_carka_down.setVisible(false);
     }
 
     public static int randomID(){
