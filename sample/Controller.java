@@ -94,8 +94,7 @@ public class Controller implements Initializable {
     private PasswordField passwordfield_password;
     @FXML
     private CheckBox visible_check;
-    @FXML
-    private DialogPane dialoga;
+
 
     //Alert pri Exite
 
@@ -128,54 +127,72 @@ public class Controller implements Initializable {
     //open dialog window for exit
     public void escclicked(KeyEvent keyEvent) throws Exception {
         if (keyEvent.getCode().getCode() == KeyCode.ESCAPE.getCode()) {
-            dialoga.setVisible(true);
+            netwrk_problems_text.setVisible(false);
+            dg.setHeaderText("Exit without saving?");
+            dg.setTitle("Exit");
+            dg.setX(Main.suradnicax + 40);
+            dg.setY(Main.suradnicay + 50);
+            dg.setHeight(200);
             passwordfield_password.setEditable(false);
             textfield_email.setEditable(false);
-            netwrk_problems_text.setVisible(false);
-        }
+            textfield_pass.setEditable(false);
+            dg.showAndWait();
+            if (dg.getResult() == ButtonType.YES) {
+                System.exit(0);
+            } else {
+                passwordfield_password.setEditable(true);
+                textfield_email.setEditable(true);
+                textfield_pass.setEditable(true);
+            }
+            passwordfield_password.setEditable(false);
+            textfield_email.setEditable(false);
+            netwrk_problems_text.setVisible(false);}
         if (textfield_email.isVisible()){
         if (keyEvent.getCode().getCode() == KeyCode.ENTER.getCode()) {
-            textfield_email.setCursor(Cursor.WAIT);
-            textfield_pass.setCursor(Cursor.WAIT);
+            netwrk_problems_text.setVisible(false);
             Jdriver.otestuj_email();
             if (Jdriver.status){
                 Jdriver.otestuj_email_heslo();
-            if (passwordfield_password.isVisible()){
-                passwordfield_password.getText();
-                if (textfield_pass.isVisible()){
-                    passwordpremenna=textfield_pass.getText();
-                }
-            }
-            if (passwordfield_password.isVisible()){
-                passwordpremenna=passwordfield_password.getText();}
-            else if (textfield_pass.isVisible()){
-                passwordpremenna=textfield_pass.getText();}
-            if (textfield_email.getText().contains("@") && textfield_email.getText().contains("."))
-                emailpremenna = textfield_email.getText();
-            obsemail_bool = Jdriver.sedi_email_s_heslom();
-            if (obsemail_bool) {
-                textfield_email.setStyle("-fx-text-inner-color: green;");
-                passwordfield_password.setStyle("-fx-text-inner-color: green;");
-                textfield_pass.setStyle("-fx-text-inner-color: green;");
-                password_correct.setVisible(true);
-                Stage zavri= (Stage) passwordfield_password.getScene().getWindow();
-                zavri.close();
-                Main.setNew_stage(Main.new_stage);
+                if (passwordfield_password.isVisible()){
+                        passwordfield_password.getText();
+                        if (textfield_pass.isVisible()){
+                            passwordpremenna=textfield_pass.getText();
+                        }
+                    }
+                    if (passwordfield_password.isVisible()){
+                        passwordpremenna=passwordfield_password.getText();}
+                    else if (textfield_pass.isVisible()){
+                        passwordpremenna=textfield_pass.getText();}
+                    if (textfield_email.getText().contains("@") && textfield_email.getText().contains("."))
+                        emailpremenna = textfield_email.getText().replace(" ","");
+                    obsemail_bool = Jdriver.sedi_email_s_heslom();
+                    if (obsemail_bool) {
+                        textfield_email.setStyle("-fx-text-inner-color: green;");
+                        corrrect_icon_email.setVisible(true);
+                        corrrect_icon_email.setVisible(true);
+                        passwordfield_password.setStyle("-fx-text-inner-color: green;");
+                        textfield_pass.setStyle("-fx-text-inner-color: green;");
+                        password_correct.setVisible(true);
+                        Stage zavri= (Stage) passwordfield_password.getScene().getWindow();
+                        zavri.close();
+                        Main.setNew_stage(Main.new_stage);
+                    }else {
+                        emailpremenna = textfield_email.getText();
+                        sediasponheslo=Jdriver.obsahuje_email();
+                        if (sediasponheslo){textfield_email.setStyle("-fx-text-inner-color: green;");password_incorrect.setVisible(true);
+                            passwordfield_password.setStyle("-fx-text-inner-color: red;");
+                            wrong_icon_password.setVisible(true);corrrect_icon_email.setVisible(true);
+                            textfield_pass.setStyle("-fx-text-inner-color: red;");}
+                        else if (!obsemail_bool){email_correct.setVisible(true);
+                            passwordfield_password.setStyle("-fx-text-inner-color: red;");
+                            wrong_icon_password.setVisible(true);
+                            wrong_icon_email.setVisible(true);
+                            textfield_email.setStyle("-fx-text-inner-color: red;");
+                        }}}else netwrk_problems_text.setVisible(true);}}
 
-            }else {
-                emailpremenna = textfield_email.getText();
-                sediasponheslo=Jdriver.obsahuje_email();
-                if (sediasponheslo){textfield_email.setStyle("-fx-text-inner-color: green;");password_incorrect.setVisible(true);   }
-                else if (!obsemail_bool){email_correct.setVisible(true);}}}else {
-                textfield_email.setCursor(Cursor.TEXT);
-                textfield_pass.setCursor(Cursor.TEXT);
-                netwrk_problems_text.setVisible(true);
-                }}
 
         }
 
-
-    }
 
     //fn checks email and pass in login, if it is true,it opens next window
     public void loginclicked(MouseEvent mouseEvent) throws Exception {

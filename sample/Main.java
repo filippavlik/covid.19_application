@@ -64,22 +64,28 @@ public class Main extends Application {
 
 
         root_new.setOnMousePressed(event1 -> {
+            if (!new_stage.isMaximized()){
             xOffset1 = event1.getSceneX();
             yOffset1 = event1.getSceneY();
             suradnicax1=event1.getScreenX() - xOffset1;
             suradnicay1=event1.getScreenY() - yOffset1;
-        });
+        }});
         root_new.setOnMouseDragged(event1 -> {
+            if (!new_stage.isMaximized()){
             suradnicax1=event1.getScreenX() - xOffset1;
             suradnicay1=event1.getScreenY() - yOffset1;
             new_stage.setX(suradnicax1);
-            new_stage.setY(suradnicay1);
+            new_stage.setY(suradnicay1);}
         });
         new_stage.setX(suradnicax);
         new_stage.setY(suradnicay);
         scene1=new Scene(root_new);
         new_stage.setScene(scene1);
+        Reg.alertpane.initOwner(new_stage);
         new_stage.show();
+
+
+
     }
 
 

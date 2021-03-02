@@ -7,26 +7,28 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="anchor_new" prefHeight="392.0" prefWidth="694.4" styleClass="style1.css" stylesheets="@style1.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Reg">
+<AnchorPane fx:id="anchor_new" onKeyPressed="#exit_esc" prefHeight="500.0" prefWidth="900.0" styleClass="style1.css" stylesheets="@style1.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Reg">
    <children>
       <HBox alignment="BOTTOM_CENTER" layoutY="284.0" AnchorPane.bottomAnchor="0.0">
          <children>
-            <TabPane prefHeight="108.0" prefWidth="695.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE">
+            <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="903.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab text="Rooms">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.8" prefHeight="110.0" prefWidth="718.0">
+                    <AnchorPane disable="true" minHeight="0.0" minWidth="0.0" style="-fx-background-color: transparent;">
                            <children>
-                              <HBox prefHeight="79.0" prefWidth="694.0" />
-                              <ScrollPane opacity="0.8" prefHeight="92.0" prefWidth="694.0">
+                              <ScrollPane fx:id="scroll_pane" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" opacity="0.8" pannable="true" prefHeight="72.0" prefWidth="903.0" vbarPolicy="ALWAYS">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.8" prefHeight="106.0" prefWidth="695.0">
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.8" prefHeight="122.0" prefWidth="888.0">
                                        <children>
-                                          <HBox fx:id="living_room" alignment="CENTER_RIGHT" layoutX="24.0" layoutY="14.0" prefHeight="51.0" prefWidth="72.0">
+                                          <HBox fx:id="hbox_living" alignment="CENTER_LEFT" focusTraversable="true" layoutX="14.0" layoutY="9.0" prefHeight="52.0" prefWidth="861.0">
+                                             <padding>
+                                                <Insets left="20.0" right="10.0" />
+                                             </padding>
                                              <children>
-                                                <Pane nodeOrientation="RIGHT_TO_LEFT" prefHeight="51.0" prefWidth="72.0" style="-fx-background-color: #acd3fa; -fx-border-color: black;">
+                                                <Pane fx:id="living_room_pane" focusTraversable="true" onMouseEntered="#settings" prefHeight="56.0" prefWidth="73.0" style="-fx-background-color: grey; -fx-border-color: black;">
                                                    <cursor>
-                                                      <Cursor fx:constant="DEFAULT" />
+                                                      <Cursor fx:constant="MOVE" />
                                                    </cursor>
                                                    <children>
                                                       <Label alignment="CENTER" prefHeight="31.0" prefWidth="74.0" text="Living" textAlignment="CENTER" textFill="#030303">
@@ -54,9 +56,9 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.8" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <ScrollPane layoutX="-17.0" layoutY="-1.0" opacity="0.8" prefHeight="95.0" prefWidth="712.0">
+                              <ScrollPane hbarPolicy="NEVER" layoutX="-17.0" layoutY="-1.0" opacity="0.8" prefHeight="70.0" prefWidth="920.0">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.8" prefHeight="128.0" prefWidth="714.0" />
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.8" prefHeight="128.0" prefWidth="920.0" />
                                 </content>
                               </ScrollPane>
                            </children>
@@ -67,9 +69,9 @@
                      <content>
                         <AnchorPane opacity="0.8" prefHeight="138.0" prefWidth="694.0">
                            <children>
-                              <ScrollPane layoutY="-1.0" opacity="0.8" prefHeight="89.0" prefWidth="694.0">
+                              <ScrollPane hbarPolicy="NEVER" layoutY="-1.0" opacity="0.8" prefHeight="73.0" prefWidth="903.0">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="116.0" prefWidth="694.0" />
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="116.0" prefWidth="902.0" />
                                 </content>
                               </ScrollPane>
                            </children>
@@ -80,9 +82,9 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.8" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <ScrollPane layoutY="-1.0" opacity="0.8" prefHeight="94.0" prefWidth="694.0">
+                              <ScrollPane hbarPolicy="NEVER" layoutY="-1.0" opacity="0.8" prefHeight="71.0" prefWidth="903.0">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="111.0" prefWidth="695.0" />
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="111.0" prefWidth="902.0" />
                                 </content>
                               </ScrollPane>
                            </children>
@@ -118,5 +120,10 @@
             <ButtonType fx:constant="YES" />
          </buttonTypes>
       </DialogPane>
+      <HBox layoutY="49.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.topAnchor="49.0">
+         <children>
+            <Pane fx:id="anchor_pame" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="900.0" style="-fx-background-color: transparent;" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
