@@ -1,0 +1,132 @@
+[33mcommit 627fc4d8c3e1221e67f8e2a950cc03230e448aca[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Thu Mar 4 21:07:43 2021 +0100
+
+    nove subory
+
+[33mcommit 978720a00d88dc9a7f388a75c04b03acb3e8265d[m
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Thu Mar 4 21:06:17 2021 +0100
+
+    Presuvanie panelov, + texty na lavo
+
+[33mcommit 1ca44d2098d437c850d0e9de9d571a24bae3fcce[m
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Wed Mar 3 00:06:16 2021 +0100
+
+    nove alerty, maximized scene1...
+
+[33mcommit f2a5c3bdce13a3d67e43575e72186d26bc1852c3[m
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Sun Feb 21 22:09:59 2021 +0100
+
+    Nové pozadie na 2stage, problém z maximilizáciou
+
+[33mcommit 07b7f36577137ba206424b22387564e5e5d9eebb[m
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Sun Feb 21 10:43:50 2021 +0100
+
+    pridanie Cont a sample
+
+[33mcommit 2f14054972a272a9245bab09cd0b570e9b8f9580[m
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Sat Feb 20 11:06:12 2021 +0100
+
+    Opravil som nespravne linky
+
+[33mcommit 0e0067246b18976f3a7bcef4c35dcf72ccebd543[m
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Sat Feb 20 11:02:14 2021 +0100
+
+    new resources
+
+[33mcommit 8484697b0f2018daec6ec3a91ac6291047d784d4[m
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Sat Feb 20 10:58:44 2021 +0100
+
+    Opravil som chybu
+
+[33mcommit 9141523742e60fe85d507ca8888498f90664893b[m
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Sat Feb 20 10:17:22 2021 +0100
+
+    Pridal som fn pri network conn problémoch
+
+[33mcommit ab378198bc851b9b3bdd617411f5a5d1599a52a3[m
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Sun Feb 14 19:36:20 2021 +0100
+
+    Minimalise,exit,maxi
+
+[33mcommit 117651ad74e54883f3f9bba0b54f702555741601[m
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Sun Feb 14 18:47:45 2021 +0100
+
+    Nastavenie 2.okna
+
+[33mcommit ce31368925166a2d4658d48b75e0d22ad133bb06[m
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Sat Feb 13 20:57:26 2021 +0100
+
+    Prepojenie na databázu+ nové grafické icons/upozornenia
+
+[33mcommit 2d63b5afaf47f73be445703a75fe015d6568ec59[m
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Fri Feb 12 22:17:08 2021 +0100
+
+    Vymazanesrc
+
+[33mcommit 22d535acd406008979a52a1f88008ff5601f4062[m
+Merge: c2d6cbe 911109a
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Fri Feb 12 21:38:55 2021 +0100
+
+    Merge branch 'main' of https://github.com/filippavlik/covid.19_application into main
+
+[33mcommit c2d6cbe426b4962be8a85fecc5da15777b95b681[m
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Fri Feb 12 21:36:25 2021 +0100
+
+    skusam Jdriver
+
+[33mcommit 644bbcc6220d4e8f1903c89dd200304db6579992[m
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Wed Feb 10 18:30:05 2021 +0100
+
+    zmenil som url
+
+[33mcommit 122a110f4b9d9cb34c831ce308a2d089b09c4721[m
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Wed Feb 10 18:04:03 2021 +0100
+
+    Vymazal som zbytocne texty
+
+[33mcommit 7da0d78de39daafe40228f14e3e3397cf7238cb7[m
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Wed Feb 10 17:13:53 2021 +0100
+
+    Vymazal som všetky nepotrebné texty
+
+[33mcommit 911109ad389f8f01a114380cfa89548a722576cb[m
+Author: Filip Pavlik <78799216+filippavlik@users.noreply.github.com>
+Date:   Wed Feb 10 16:43:04 2021 +0100
+
+    Create src
+
+[33mcommit 2903b451cdfaf83ec11c257288d78098c8772a1b[m
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Wed Feb 10 16:39:36 2021 +0100
+
+    Vymazal som vypis z okna
+
+[33mcommit 0d09efcac865f815c8d148c4a1e4333b13de850e[m
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Wed Feb 10 16:31:19 2021 +0100
+
+    Pridal som vypis do main
+
+[33mcommit f2fbbf589a075c1f64bb1abac7679fe75669d549[m
+Author: filippavlik <filippavlikw@gmail.com>
+Date:   Wed Feb 10 15:22:10 2021 +0100
+
+    Prvá verzia môjho projektu
