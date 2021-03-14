@@ -7,6 +7,7 @@
 <?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
@@ -23,7 +24,7 @@
    <children>
       <HBox fx:id="label_living" alignment="BOTTOM_CENTER" layoutY="284.0" AnchorPane.bottomAnchor="0.0">
          <children>
-            <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="903.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE">
+            <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="903.0" side="BOTTOM" stylesheets="@tabbed_pane.css" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab text="Rooms">
                   <content>
@@ -38,7 +39,7 @@
                                                 <Insets left="20.0" right="10.0" />
                                              </padding>
                                              <children>
-                                                <Pane fx:id="living_room_pane" focusTraversable="true" onMouseEntered="#settings" prefHeight="56.0" prefWidth="73.0" style="-fx-background-color: #6d7275; -fx-border-color: black;">
+                                                <Pane fx:id="living_room_pane" focusTraversable="true" onMouseEntered="#settings" prefHeight="56.0" prefWidth="73.0" style="-fx-background-color: #6d7275; -fx-border-color: black; -fx-border-width: 2;">
                                                    <cursor>
                                                       <Cursor fx:constant="MOVE" />
                                                    </cursor>
@@ -55,9 +56,57 @@
                                                       </Label>
                                                    </children>
                                                 </Pane>
-                                                <Pane fx:id="kitchen_pane" prefHeight="56.0" prefWidth="73.0" style="-fx-background-color: #d64b4d; -fx-border-color: black;">
+                                                <Pane fx:id="kitchen_pane" prefHeight="56.0" prefWidth="73.0" style="-fx-background-color: #d64b4d; -fx-border-color: black; -fx-border-width: 2;">
                                                    <children>
                                                       <Label fx:id="kitchen_text" layoutX="9.0" layoutY="19.0" text="Kitchen">
+                                                         <font>
+                                                            <Font name="Segoe UI Black Italic" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <cursor>
+                                                      <Cursor fx:constant="MOVE" />
+                                                   </cursor>
+                                                </Pane>
+                                                <Pane fx:id="bedroom_pane" layoutX="123.0" layoutY="10.0" prefHeight="56.0" prefWidth="73.0" style="-fx-background-color: #55c93f; -fx-border-color: black; -fx-border-width: 2;">
+                                                   <children>
+                                                      <Label fx:id="bedroom_text1" layoutX="3.0" layoutY="19.0" text="Bedroom">
+                                                         <font>
+                                                            <Font name="Segoe UI Black Italic" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <cursor>
+                                                      <Cursor fx:constant="MOVE" />
+                                                   </cursor>
+                                                </Pane>
+                                                <Pane fx:id="bathroom_pane" layoutX="216.0" layoutY="10.0" prefHeight="58.0" prefWidth="89.0" style="-fx-background-color: #00ffee; -fx-border-color: black; -fx-border-width: 2;">
+                                                   <children>
+                                                      <Label fx:id="bathroom_text1" layoutX="7.0" layoutY="19.0" prefHeight="21.0" prefWidth="76.0" text="Bathroom">
+                                                         <font>
+                                                            <Font name="Segoe UI Black Italic" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <cursor>
+                                                      <Cursor fx:constant="MOVE" />
+                                                   </cursor>
+                                                </Pane>
+                                                <Pane fx:id="restroom_pane1" layoutX="309.0" layoutY="10.0" prefHeight="58.0" prefWidth="83.0" style="-fx-background-color: #ffbffb; -fx-border-color: black; -fx-border-width: 2;">
+                                                   <children>
+                                                      <Label fx:id="restroom_text" layoutX="7.0" layoutY="19.0" prefHeight="21.0" prefWidth="76.0" text="Restroom">
+                                                         <font>
+                                                            <Font name="Segoe UI Black Italic" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <cursor>
+                                                      <Cursor fx:constant="MOVE" />
+                                                   </cursor>
+                                                </Pane>
+                                                <Pane fx:id="garage_pane11" layoutX="418.0" layoutY="10.0" prefHeight="58.0" prefWidth="73.0" style="-fx-background-color: #e3d917; -fx-border-color: black; -fx-border-width: 2;">
+                                                   <children>
+                                                      <Label fx:id="garage_text1" alignment="CENTER" layoutX="7.0" layoutY="19.0" prefHeight="21.0" prefWidth="64.0" text="Garage">
                                                          <font>
                                                             <Font name="Segoe UI Black Italic" size="15.0" />
                                                          </font>
@@ -146,64 +195,206 @@
       </DialogPane>
       <HBox layoutY="49.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.topAnchor="49.0">
          <children>
-            <Pane fx:id="anchor_pame" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="900.0" style="-fx-background-color: transparent;">
+            <Pane fx:id="anchor_pame" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="769.0" style="-fx-background-color: transparent;" />
+         </children>
+      </HBox>
+      <Slider fx:id="slider_size" layoutX="871.0" layoutY="1.0" orientation="VERTICAL" prefHeight="108.0" prefWidth="18.0" />
+      <VBox fx:id="v_box_rooms" layoutX="723.0" layoutY="199.0" prefHeight="200.0" prefWidth="174.0">
+         <children>
+            <HBox fx:id="living_room_hbox_left" alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="165.0" visible="false">
                <children>
-                  <VBox fx:id="v_box_rooms" layoutX="763.0" layoutY="150.0" prefHeight="200.0" prefWidth="137.0">
-                     <children>
-                        <HBox fx:id="living_room_hbox_left" alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="110.0" visible="false">
-                           <children>
-                              <ImageView fitHeight="32.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../resources/grey.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin></ImageView>
-                              <Label prefHeight="17.0" prefWidth="88.0" text="Living room" textFill="WHITE">
-                                 <font>
-                                    <Font name="Segoe UI Black Italic" size="12.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <VBox.margin>
-                              <Insets left="10.0" right="10.0" />
-                           </VBox.margin>
-                           <padding>
-                              <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
-                           </padding>
-                        </HBox>
-                        <HBox fx:id="kitchen_hbox_left" alignment="CENTER_LEFT" layoutX="20.0" layoutY="20.0" prefHeight="27.0" prefWidth="110.0" visible="false">
-                           <children>
-                              <ImageView fitHeight="32.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../resources/red.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <Label prefHeight="17.0" prefWidth="88.0" text="Kitchen" textFill="WHITE">
-                                 <font>
-                                    <Font name="Segoe UI Black Italic" size="12.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
-                           </padding>
-                           <VBox.margin>
-                              <Insets left="10.0" right="10.0" />
-                           </VBox.margin>
-                        </HBox>
-                     </children>
-                     <opaqueInsets>
+                  <ImageView fitHeight="32.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/grey.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label prefHeight="18.0" prefWidth="90.0" text="Living room" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="living_width_height_labels" prefHeight="18.0" prefWidth="49.0" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black" size="12.0" />
+                     </font>
+                     <HBox.margin>
                         <Insets />
-                     </opaqueInsets>
-                     <cursor>
-                        <Cursor fx:constant="NONE" />
-                     </cursor>
-                  </VBox>
-               </children></Pane>
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="kitchen_hbox_left" alignment="CENTER_LEFT" layoutX="20.0" layoutY="20.0" prefHeight="27.0" prefWidth="110.0" visible="false">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/red.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label prefHeight="17.0" prefWidth="88.0" text="Kitchen" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="kitchen_width_height_labels" prefHeight="18.0" prefWidth="49.0" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets left="10.0" right="35.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox fx:id="restroom_hbox_left" alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="110.0" visible="false">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/pink.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label prefHeight="17.0" prefWidth="88.0" text="Restroom" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="restroom_width_height_labels1" prefHeight="18.0" prefWidth="49.0" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets left="10.0" right="35.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox fx:id="bedroom_hbox_left" alignment="CENTER_LEFT" layoutX="20.0" layoutY="39.0" prefHeight="27.0" prefWidth="110.0" visible="false">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/green.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label prefHeight="17.0" prefWidth="88.0" text="Bedroom" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="bedroom_width_height_labels11" prefHeight="18.0" prefWidth="49.0" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets left="10.0" right="35.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox fx:id="bathroom_hbox_left" alignment="CENTER_LEFT" layoutX="20.0" layoutY="70.0" prefHeight="27.0" prefWidth="110.0" visible="false">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/akvamarin.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label prefHeight="17.0" prefWidth="88.0" text="Bathroom" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="bathroom_width_height_labels111" prefHeight="18.0" prefWidth="49.0" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets left="10.0" right="35.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox fx:id="garage_hbox_left" alignment="CENTER_LEFT" layoutX="20.0" layoutY="134.0" prefHeight="27.0" prefWidth="110.0" visible="false">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/yellow.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label prefHeight="17.0" prefWidth="88.0" text="Garage" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="garage_width_height_labels1111" prefHeight="18.0" prefWidth="49.0" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="NONE" />
+         </cursor>
+      </VBox>
+      <HBox fx:id="hbox_width_height" layoutX="817.0" layoutY="181.0" prefHeight="28.0" prefWidth="83.0" spacing="12.0" visible="false">
+         <children>
+            <Label prefHeight="25.0" prefWidth="35.0" text="W[m]" textFill="#ee2727">
+               <font>
+                  <Font name="Segoe UI Black Italic" size="12.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </Label>
+            <Label prefHeight="25.0" prefWidth="33.0" text="H[m]" textFill="#fc3030">
+               <font>
+                  <Font name="Segoe UI Black Italic" size="12.0" />
+               </font>
+            </Label>
          </children>
       </HBox>
    </children>
